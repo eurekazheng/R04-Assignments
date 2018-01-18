@@ -16,6 +16,8 @@ This will create a new folder called "R04-Assignments" under your current workin
 
 Do your work in this folder (it won't be available for other team members before git push).
 
+Make sure that all git commands are entered under your **local repository root directory.**
+
 Then push you changes to the remote server:
 ```
 git add -A
@@ -29,9 +31,12 @@ Enter your Github E-mail and password for Username and Password for the first ti
 
 ## Update
 
-To update the local repository from the remote, simply enter:
+If other team members push changes to the repository **after your last push**, you need to update the local repository from the remote:
 ```
 git pull
 ```
 
-**Make sure that all git commands are entered under your local repository directory.**
+## Norms
+
+Organization:
+```/member_name/hw#/files```
