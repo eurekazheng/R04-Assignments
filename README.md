@@ -25,7 +25,7 @@ git commit -m "commit message"
 git push
 ```
 
-Commit message is a short explanation for other team members about your current changes. It's optional (you can just use "git commit") but strongly recommended.
+Commit message is a short explanation for other team members about your current changes. It's optional (you can just use "git commit") but strongly recommended. Avoid using special characters like single quote or black slash in the message.
 
 Enter your Github E-mail and password for Username and Password for the first time.
 
