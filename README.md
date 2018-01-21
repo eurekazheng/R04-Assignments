@@ -36,6 +36,8 @@ If other team members push changes to the repository **after your last push**, y
 git pull
 ```
 
+This will automatically merge the conflicts between the remote and local repository most of the time regarding the structure of our repository. However, sometimes it requires manual conflicts resolution when **a same file** is edited by both you in your local commits and other team members in their commits that are already pushed. Use ```git status``` to trace differences and view the code on the website. Delete and backup the conflict files on your local repository and then pull it again.
+
 ## Norms
 
 Organization:
