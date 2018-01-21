@@ -1,4 +1,4 @@
-% Created by Evan White on 1/19/2018 for Assignment 2 of ENGR0012. Last edited on 1/19/2018.
+% Created by Evan White on 1/19/2018 for Assignment 2 of ENGR0012. Last edited on 1/21/2018.
 % This script will solve a set of linear equations using data input by the
 % user 
 clear;
@@ -20,29 +20,37 @@ while userchoice=='y'
     if cols>rows
     %if the data is in rows meaning more columns than rows, run this
         equations=userdata(:,1:cols-1);
-        if det(equations)==0
-            %checking if the determinant is correct
-            disp('Error! Wrong Dimensions.');
+        if cols~=rows+1
+            disp('Error! Inconsistent Dimensions');
+        else
+            if det(equations)==0
+                %checking if the determinant is correct
+                disp('Error! Unsolvable Matrix');
+            end
+            %getting the equations
+            solutions=userdata(:,cols);
+            %getting their solutions
+            output=equations\solutions;
+            %getting the x values
+            disp(output);
         end
-        %getting the equations
-        solutions=userdata(:,cols);
-        %getting their solutions
-        output=equations\solutions;
-        %getting the x values
-        disp(output);  
     else
         % if the data is organized the other way, run this
         equations=userdata(1:rows-1,:);
-        if det(equations)==0
-            disp('Error! Wrong Dimensions.');
+        if rows~=cols+1
+            disp('Error! Inconsistent Dimensions')
+        else
+            if det(equations)==0
+                disp('Error! Wrong Dimensions.');
+            end
+            solutions=userdata(rows,:);
+            %transposing the data
+            equations=transpose(equations);
+            %same for equations
+            solutions=transpose(solutions);
+            output=equations\solutions;
+            disp(output);
         end
-        solutions=userdata(rows,:);
-        %transposing the data
-        equations=transpose(equations);
-        %same for equations
-        solutions=transpose(solutions);
-        output=equations\solutions;
-        disp(output);
     end  
     userchoice=input('Would you like to run again? (y/n)  ','s');
     %the if, else if, else for errors on inputing the users choice
