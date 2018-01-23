@@ -1,6 +1,8 @@
-% Linear equations system solver
-% Shaoming Zheng, Evan White, Kevin Pietz
+% Linear equations system solver for ENGR 0012 Assignment 2
+% Last edited on 1/21/2018.
+% R04 members: Shaoming Zheng, Evan White, Kevin Pietz
 
+clc;
 clear;
 disp('This is a linear equations system solver');
 reply = 'y';
@@ -31,8 +33,9 @@ while reply == 'y'
     else
         % Extract inhomogeneous term
         b = mat(:, cols);
-        % Calculate and display answer
-        x = A \ b
+        % Calculate and display the answer
+        x = A \ b;
+        disp(x);
     end
     % Prompt if the user want to continue
     reply = input('Do you want to continue? (y/N): ', 's');

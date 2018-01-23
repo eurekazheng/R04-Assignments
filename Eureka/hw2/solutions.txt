@@ -1,0 +1,39 @@
+prob1: 
+Alice - $2.25
+Barb - $3.35
+Carol - $4.50
+Dean - $7.85
+Eric - $5.60
+Fred - $10.10
+
+prob2:
+Alice - $135.41
+Bob - $7.51
+Cynthia - -$26.69
+Dave - $3.76
+Ellen - $30.44
+Fred - $97.56
+
+prob3:
+21375
+
+prob4:
+812632
+
+prob5:
+41736
+
+prob6:
+Alice - $134.50
+Ben - $78.25
+Cindy - -$45.30
+Dean - $32.95
+Evan - $98.85
+
+prob8:
+Alice - 20
+Barb - 12
+Carol - 10
+Dean - 26
+Eric - 6
+Fred - 18
