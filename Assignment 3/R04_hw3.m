@@ -1,6 +1,6 @@
 %Evan White, Eureka Zheng, Kevin Pietz
 %Created on 1/24/2018
-%Last Edited on 1/25/2018
+%Last Edited on 1/27/2018
 %Assignment 3 of ENGR0012
 %Purpose: Statistical Analysis of User inputed data files
 
@@ -161,16 +161,21 @@ while again=='y'
         else
             range=sorteddata(numdata)-sorteddata(1);
             delta=range/numbins;
-            binbounds=zeros(1,numbins);
+            %both the number of bounds and the counts in the bins have the 
+            %same size
+            binbounds=zeros(1,numbins+1);
             bincounts=zeros(1,numbins);
+            %left bound is the minimum data point
             binbounds(1)=minofdata;
+            %the second bin bound is the first plus the delta, and so on
             for n=2:numbins+1
                 binbounds(n)=binbounds(n-1)+delta;
             end
+            
             for n=1:numdata 
                 currentcheck=sorteddata(n); %check every number from 1 to number of datapoints
                 for m=numbins:-1:1
-                    if currentcheck>=binbounds(m) %if current num being check is greater or equal to binbounds at m, add a bincount at m
+                    if currentcheck>=binbounds(m+1) %if current num being check is greater or equal to binbounds at m, add a bincount at m
                         bincounts(m)=bincounts(m)+1;
                         break;
                     end
