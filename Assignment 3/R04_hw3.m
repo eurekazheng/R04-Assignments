@@ -1,7 +1,8 @@
 %Evan White, Eureka Zheng, Kevin Pietz
-%Created on 1/24/2018
-%Last Edited on 1/27/2018
-%Assignment 3 of ENGR0012
+%Engineering 0012 T,Th 2:00-4:00
+%Instructor: Mandala
+%Created on 1/24/2018, Edited on 1/27/2018
+%Assignment 3
 %Purpose: Statistical Analysis of User inputed data files
 
 %Explanation of Variables:
@@ -161,7 +162,7 @@ while again=='y'
         else
             range=sorteddata(numdata)-sorteddata(1);
             delta=range/numbins;
-            %both the number of bounds and the counts in the bins have the 
+            %both the number of bounds and the counts in the bins have the
             %same size
             binbounds=zeros(1,numbins+1);
             bincounts=zeros(1,numbins);
@@ -172,7 +173,7 @@ while again=='y'
                 binbounds(n)=binbounds(n-1)+delta;
             end
             
-            for n=1:numdata 
+            for n=1:numdata
                 currentcheck=sorteddata(n); %check every number from 1 to number of datapoints
                 for m=numbins:-1:1
                     if currentcheck>=binbounds(m+1) %if current num being check is greater or equal to binbounds at m, add a bincount at m
@@ -183,7 +184,7 @@ while again=='y'
             end
             subplot(2,1,x)
             bar(binbounds(1:numbins),bincounts);
-             title('Using the bar Command');
+            title('Using the bar Command');
             xlab=input('Please type your x label: ','s');
             xlabel(xlab);
             ylab=input('Please type your y label: ','s');
@@ -196,9 +197,9 @@ while again=='y'
     again=input('Would you like to run again? (y/n)  ','s');
     %the if, else if, else for errors on inputing the users choice
     if again=='y'
-    
+        
     elseif again=='n'
-       disp('Goodbye!'); 
+        disp('Goodbye!');
     else
         again=input('Error! Would you like to run again? (y/n)  ','s');
     end
