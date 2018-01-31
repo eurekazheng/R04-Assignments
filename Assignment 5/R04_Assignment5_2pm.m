@@ -7,7 +7,7 @@
 %clearing and setting for the while loop
 
 %Explanation of variables:
-%userdata - all of the user inputted data
+%userdata: all of the user inputted data
 %rows: number of rows in data
 %cols: number of cols in data
 %symbol: symbol at points on the graph
@@ -22,6 +22,13 @@
 %fityint: y intercept of best fit line
 %fity: y values of best fit line
 %fitslope: slope of best fit line
+%abserror: an array of absolute errors for each value
+%relerror: an array of relative for each value except when the y is 0
+%maxabserror: the max absolute error
+%maxrelerror: the max relative error
+%xval: the x value where the max absolute error is
+%xval2: the x value where the max relative error is
+%output: A concatenated string used for displaying the max errors
 
 clear;
 clc;
@@ -218,3 +225,30 @@ fity=fitslope*x+fityint;
 hold on;
 plot(x,fity,fitchoice)
 
+%setting up the error variables beforehand
+abserror=zeros(1,numdata);
+relerror=zeros(1,numdata);
+maxabserror=0;
+maxrelerror=0;
+
+%calculating the errors and recording the maxes in 1 for loop
+for n=1:numdata
+    abserror(n)=abs(y(n)-fity(n));
+    if y(n)>0
+        relerror(n)=abserror(n)/y(n);
+    end
+    if abserror(n)>maxabserror
+        maxabserror=abserror(n);
+        xval=x(n);
+    end
+    if relerror(n)>maxrelerror
+        maxrelerror=relerror(n);
+        xval2=x(n);
+    end
+end
+
+%displaying the max errors
+output=['The max absolute error is ',num2str(maxabserror),' at x = ',num2str(xval)];
+disp(output);
+output=['The max relative error is ',num2str(maxrelerror),' at x = ',num2str(xval2)];
+disp(output);
