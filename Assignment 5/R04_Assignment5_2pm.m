@@ -28,11 +28,9 @@
 %maxrelerror: the max relative error
 %xval: the x value where the max absolute error is
 %xval2: the x value where the max relative error is
-%output: A concatenated string used for displaying the max errors
 
 clear;
 clc;
-
 
 userdata=input('Please Enter the name of your datafile: ','s');
 
@@ -233,22 +231,29 @@ maxrelerror=0;
 
 %calculating the errors and recording the maxes in 1 for loop
 for n=1:numdata
+    %absolute error is the absolute value of the y value minus the fitted y
+    %value
     abserror(n)=abs(y(n)-fity(n));
     if y(n)>0
+        %if the y value isn't zero, the relerror at n is the abserror
+        %divided by y value
         relerror(n)=abserror(n)/y(n);
     end
     if abserror(n)>maxabserror
+        %if the abserror this loop is greater than current max, switch
+        %current max to abserror
         maxabserror=abserror(n);
+        %get the xvalue of this point to say where the maxabserror is
         xval=x(n);
     end
     if relerror(n)>maxrelerror
+        %getting max same way as max abserror
         maxrelerror=relerror(n);
         xval2=x(n);
     end
 end
 
 %displaying the max errors
-output=['The max absolute error is ',num2str(maxabserror),' at x = ',num2str(xval)];
-disp(output);
-output=['The max relative error is ',num2str(maxrelerror),' at x = ',num2str(xval2)];
-disp(output);
+disp(['The max absolute error is ',num2str(maxabserror),' at x = ',num2str(xval)]);
+disp(['The max relative error is ',num2str(maxrelerror),' at x = ',num2str(xval2)]);
+
