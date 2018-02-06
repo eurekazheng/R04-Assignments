@@ -2,7 +2,7 @@
 %Engineering 0012 T,Th 2:00-4:00
 %Instructor: Mandala
 %Created on 1/31/2018
-%Assignment 5
+%Assignment 6
 %Purpose: Plotting of xy data and performing analysis of said data
 %clearing and setting for the while loop
 
@@ -476,6 +476,56 @@ while again=='y' %loop for user to try again
         semilcoeff=polyfit(xhat,yhat,1);
         yslog=polyval(semilcoeff,xhat);
         plot(xhat,yslog,plotchoice);
+        
+        % Errors for semi-log
+        abserror=zeros(1,numdatan);
+        relerror=zeros(1,numdatan);
+        maxabserror=0;
+        maxrelerror=0;
+        
+        %calculating the errors and recording the maxes in 1 for loop
+        for n=1:numdatan
+            %absolute error is the absolute value of the y value minus the fitted y
+            %value
+            abserror(n)=abs(log(y2(n))-yslog(n));
+            if log(y2(n))>0
+                %if the y value isn't zero, the relerror at n is the abserror
+                %divided by y value
+                relerror(n)=abserror(n)/log(y2(n));
+            end
+            if abserror(n)>maxabserror
+                %if the abserror this loop is greater than current max, switch
+                %current max to abserror
+                maxabserror=abserror(n);
+                %get the xvalue of this point to say where the maxabserror is
+                xval=x(n);
+            end
+            if relerror(n)>maxrelerror
+                %getting max same way as max abserror
+                maxrelerror=relerror(n);
+                xval2=x(n);
+            end
+        end
+        
+        %displaying the max errors
+        disp(['The max absolute error is ',num2str(maxabserror),' at x = ',num2str(xval)]);
+        disp(['The max relative error is ',num2str(maxrelerror),' at x = ',num2str(xval2)]);
+        
+        %r-squared value for semi-log
+        
+        meanlogy=mean(yslog);
+        
+        sse=0;
+        sst=0;
+        
+        for n=1:numdatan
+            sse=sse+(log(y2(n))-yslog(n))^2;
+        end
+        for n=1:numdatan
+            sst=sst+(log(y2(n))-meanlogy)^2;
+        end
+        
+        rsquared=1-sse/sst;
         
         %End of Semi-log Fit
         %----------------------
