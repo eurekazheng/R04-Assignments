@@ -527,11 +527,13 @@ while again=='y' %loop for user to try again
         
         rsquared=1-sse/sst;
         
-       
-        outputtext=strcat('y = ',num2str(semilcoeff(1)),'x + ',num2str(semilcoeff(2)));
-        gtext(outputtext);
-        outputtext=strcat('The r-squared is: ',num2str(rsquared));
-        gtext(outputtext);
+        outputtext=' ';
+        degree='1';
+            for n=1:degree
+                outputtext=strcat(num2str(polycoeff(degree+1-n)),'x^',num2str(n),' + ',outputtext);
+            end
+            outputtext=strcat('y = ',outputtext,num2str(polycoeff(degree+1)));
+            gtext(outputtext);
         
         %End of Semi-log Fit
         %----------------------
