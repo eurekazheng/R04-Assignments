@@ -428,7 +428,7 @@ while again=='y' %loop for user to try again
         end
         
         color=menu('Please choose a color','blue','green','red','cyan','magenta','yellow','black','white');
-        switch color
+        switch
             case 1
                 color='b';
             case 2
@@ -447,19 +447,7 @@ while again=='y' %loop for user to try again
                 color='w';
         end
         
-        line=menu('Choose a line style','solid','dotted','dashdot','dashed');
-        switch line
-            case 1
-                line='-';
-            case 2
-                line=':';
-            case 3
-                line='-.';
-            case 4
-                line='--';
-        end
-        
-        plotchoice=strcat(symbol,color,line);
+        line=
         
         %filtering negative and zero values, then keeping the correct yhat
         %value associated with its x value
@@ -475,7 +463,7 @@ while again=='y' %loop for user to try again
         yhat=log(y2);
         semilcoeff=polyfit(xhat,yhat,1);
         yslog=polyval(semilcoeff,xhat);
-        plot(xhat,yslog,plotchoice);
+        plot(xhat,yslog);
         
         %End of Semi-log Fit
         %----------------------
