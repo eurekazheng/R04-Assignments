@@ -386,10 +386,7 @@ while again=='y' %loop for user to try again
         %Start of Spline Fit
     elseif plottype==3
         hold on;
-        coeff=spline(x,y);
-        xhat=linspace(xmin,xmax,300);
-        yhat=ppval(coeff,xhat);
-        plot(xhat,yhat);
+        
         %End of Spline Fit
         %----------------------
         %----------------------
@@ -530,11 +527,13 @@ while again=='y' %loop for user to try again
         
         rsquared=1-sse/sst;
         
-       
-        outputtext=strcat('y = ',num2str(semilcoeff(1)),'x + ',num2str(semilcoeff(2)));
-        gtext(outputtext);
-        outputtext=strcat('The r-squared is: ',num2str(rsquared));
-        gtext(outputtext);
+        outputtext=' ';
+        degree='1';
+            for n=1:degree
+                outputtext=strcat(num2str(polycoeff(degree+1-n)),'x^',num2str(n),' + ',outputtext);
+            end
+            outputtext=strcat('y = ',outputtext,num2str(polycoeff(degree+1)));
+            gtext(outputtext);
         
         %End of Semi-log Fit
         %----------------------
@@ -542,22 +541,9 @@ while again=='y' %loop for user to try again
         %----------------------
         %Start of Log-Log Fit
     elseif plottype==5
-        m=1;
-        for n=1:numdata
-            if y(n)>0 && x(n)>0
-                y2(m)=y(n);
-                x2(m)=x(n);
-                m=m+1;
-            end
-        end
-        numdatan=length(x2);
-        yhat=log(y2);
-        xhat=log(x2);
-        logcoeff=polyfit(xhat,yhat,1);
-        ylog=polyval(logcoeff,xhat);
-        plot(xhat,ylog);
         hold on;
-        plot(xhat,yhat,strcat(symbol,color));
+        
+        
         %end of Log-Log Fit
         %----------------------
         %----------------------
