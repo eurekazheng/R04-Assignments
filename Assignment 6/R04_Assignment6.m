@@ -446,7 +446,7 @@ while again=='y' %loop for user to try again
                 color='y';
             case 7
                 color='k';
-            case 8    
+            case 8
                 color='w';
         end
         
@@ -530,7 +530,7 @@ while again=='y' %loop for user to try again
         
         rsquared=1-sse/sst;
         
-       
+        
         outputtext=strcat('y = ',num2str(semilcoeff(1)),'x + ',num2str(semilcoeff(2)));
         gtext(outputtext);
         outputtext=strcat('The r-squared is: ',num2str(rsquared));
@@ -542,6 +542,73 @@ while again=='y' %loop for user to try again
         %----------------------
         %Start of Log-Log Fit
     elseif plottype==5
+        %the menu to choose the symbol
+        symbol=menu('Choose a symbol: ','point','circle','x-mark','plus','star','square','diamond','triangle (down)','triangle (up)','triangle (left)','triangle (right)','pentragram','hexagram');
+        %switch case for the symbol, in a format that works for plots
+        switch symbol
+            case 1
+                symbol='.';
+            case 2
+                symbol='o';
+            case 3
+                symbol='x';
+            case 4
+                symbol='+';
+            case 5
+                symbol='*';
+            case 6
+                symbol='s';
+            case 7
+                symbol='d';
+            case 8
+                symbol='v';
+            case 9
+                symbol='^';
+            case 10
+                symbol='<';
+            case 11
+                symbol='>';
+            case 12
+                symbol='p';
+            case 13
+                symbol='h';
+        end
+        
+        color=menu('Please choose a color','blue','green','red','cyan','magenta','yellow','black','white');
+        switch color
+            case 1
+                color='b';
+            case 2
+                color='g';
+            case 3
+                color='r';
+            case 4
+                color='c';
+            case 5
+                color='m';
+            case 6
+                color='y';
+            case 7
+                color='k';
+            case 8
+                color='w';
+        end
+        
+        line=menu('Choose a line style','solid','dotted','dashdot','dashed');
+        switch line
+            case 1
+                line='-';
+            case 2
+                line=':';
+            case 3
+                line='-.';
+            case 4
+                line='--';
+        end
+        
+        plotchoice=strcat(symbol,color,line);
+        
+        
         m=1;
         for n=1:numdata
             if y(n)>0 && x(n)>0
@@ -555,9 +622,66 @@ while again=='y' %loop for user to try again
         xhat=log(x2);
         logcoeff=polyfit(xhat,yhat,1);
         ylog=polyval(logcoeff,xhat);
-        plot(xhat,ylog);
+        figure;
+        plot(xhat,ylog,color);
         hold on;
-        plot(xhat,yhat,strcat(symbol,color));
+        plot(xhat,yhat,plotchoice);
+        
+        % Errors for semi-log
+        abserror=zeros(1,numdatan);
+        relerror=zeros(1,numdatan);
+        maxabserror=0;
+        maxrelerror=0;
+        
+        %calculating the errors and recording the maxes in 1 for loop
+        for n=1:numdatan
+            %absolute error is the absolute value of the y value minus the fitted y
+            %value
+            abserror(n)=abs(log(y2(n))-ylog(n));
+            if log(y2(n))>0
+                %if the y value isn't zero, the relerror at n is the abserror
+                %divided by y value
+                relerror(n)=abserror(n)/log(y2(n));
+            end
+            if abserror(n)>maxabserror
+                %if the abserror this loop is greater than current max, switch
+                %current max to abserror
+                maxabserror=abserror(n);
+                %get the xvalue of this point to say where the maxabserror is
+                xval=x2(n);
+            end
+            if relerror(n)>maxrelerror
+                %getting max same way as max abserror
+                maxrelerror=relerror(n);
+                xval2=x2(n);
+            end
+        end
+        
+        %displaying the max errors
+        disp(['The max absolute error is ',num2str(maxabserror),' at x = ',num2str(xval)]);
+        disp(['The max relative error is ',num2str(maxrelerror),' at x = ',num2str(xval2)]);
+        
+        %r-squared value for semi-log
+        
+        meanlogy=mean(ylog);
+        
+        sse=0;
+        sst=0;
+        
+        for n=1:numdatan
+            sse=sse+(log(y2(n))-ylog(n))^2;
+        end
+        for n=1:numdatan
+            sst=sst+(log(y2(n))-meanlogy)^2;
+        end
+        
+        rsquared=1-sse/sst;
+        
+        
+        outputtext=strcat('y = ',num2str(logcoeff(1)),'x + ',num2str(logcoeff(2)));
+        gtext(outputtext);
+        outputtext=strcat('The r-squared is: ',num2str(rsquared));
+        gtext(outputtext);
         %end of Log-Log Fit
         %----------------------
         %----------------------
