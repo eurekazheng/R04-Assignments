@@ -14,6 +14,9 @@ g=9.81;
 figure;
 mtime=(2*v)/g;
 axis([0 (v*mtime)/2 0 v*(mtime/2)-((1/2)*g*(mtime/2)^2)]);
+xlabel('Range');
+ylabel('Height');
+title('Projectile Motion at Various Angles');
 hold on;
 for theta=10:5:90
     v_x=v*cosd(theta);
@@ -23,7 +26,7 @@ for theta=10:5:90
         x=v_x*t;
         y=v_yi*t-g*t^2*(1/2);
         plot(x,y,'k.');
-        pause(.0025)
+        pause(.00125);
     end
-    pause(.5);
+    pause(2);
 end
