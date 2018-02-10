@@ -1,4 +1,4 @@
-function [xnew,ylog,coeffs]=logfit(x,y)
+function [xnew,ylog,coeffs,y2]=logfit(x,y)
     % Function created by Kevin Pietz on 2.10.2018
     % Purpose is to find new variables for log log
 
