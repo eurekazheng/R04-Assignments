@@ -18,15 +18,17 @@ xlabel('Range');
 ylabel('Height');
 title('Projectile Motion at Various Angles');
 hold on;
-for theta=10:5:90
+tic
+for theta=0:5:90
     v_x=v*cosd(theta);
     v_yi=v*sind(theta);
     ftime=2*v_yi/g;
-    for t=0:ftime/250:ftime
+    for t=0:ftime/100:ftime
         x=v_x*t;
         y=v_yi*t-g*t^2*(1/2);
-        plot(x,y,'k.');
+        plot(x,y,'.');
         pause(.00125);
     end
-    pause(2);
+    pause(1);
 end
+toc
