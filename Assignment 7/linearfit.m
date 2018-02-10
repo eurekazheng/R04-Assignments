@@ -1,4 +1,4 @@
-function [xnew,ynew,coeffs,titlel]=linearfit(x,y)
+function [xnew,ynew,coeffs]=linearfit(x,y)
     % function created by Kevin Pietz on 2.10.2018
     % Purpose: find a linear fit to data points, output new points
     
@@ -8,6 +8,5 @@ function [xnew,ynew,coeffs,titlel]=linearfit(x,y)
     
     ynew=polyval(coeffs,xnew);
     
-   titlel='Linear Fit';
     
 end
