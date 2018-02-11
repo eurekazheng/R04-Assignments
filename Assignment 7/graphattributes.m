@@ -1,4 +1,4 @@
-function var3=graphattributes()
+function graphattributes()
     % Function created by Kevin Pietz on 2.11.2018
     % Purpose to allow user to enter title, grid lines, and labels
     

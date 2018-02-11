@@ -8,8 +8,13 @@
 
 %TO-DO:
 
+%display equation of polynomial in command window
+
 %function for estimating y value at user entered x point. allow for running
 %multiple times
+
+%allow user to enter new dataset at end. do not use a menu. check for input
+%error
 
 %create datasets on page M-202 of book
 
@@ -17,13 +22,12 @@
 
 clear;
 clc;
-again='y';
-while again=='y'
+
 [x,y]=dataload;
 plotchoice=PlotChoice;
 
-again2='y';
-while again2=='y'
+again='y';
+while again=='y'
     plottype=menu('Which type of fit do you want to use? ','linear','polynomial','spline','semi-log','log-log');
     
     clear r2;
@@ -67,18 +71,13 @@ while again2=='y'
     end
     
     addequation(coeffs,plottype);
-    graphattributes;
-    if plottype==2
-        DispPolyEq(coeffs);
-    end
     
-    again2=menu('Do you want to choose another fit type?','Yes','No');
-    switch again2
+    again=menu('Do you want to choose another fit type?','Yes','No');
+    switch again
         case 1
-            again2='y';
+            again='y';
         case 2
-            again2='n';
+            again='n';
     end
 end
-again=CheckAgain;
-end
+disp('Goodbye!');

@@ -1,7 +1,7 @@
 %Created by Evan White on 2/10/18 to output polynomial x and y values, the
 %coefficients, and a title for graphing
 
-function [xnew,ynew,coeffs]=PolynomialFit(x,y)
+function [xnew,ynew,coeffs,yest]=PolynomialFit(x,y)
 
 maxdegree=size(x)-1;
 degree=input('Please choose a degree for your polynomial: ');
@@ -12,6 +12,6 @@ end
 xnew=linspace(min(x),max(x),300);
 coeffs=polyfit(x,y,degree);
 ynew=polyval(coeffs,xnew);
-
+yest=polyval(coeffs,x);
 
 end
