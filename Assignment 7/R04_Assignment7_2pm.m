@@ -6,15 +6,6 @@
 %Purpose: Plotting of xy data and performing analysis of said data
 %clearing and setting for the while loop using functions
 
-%TO-DO:
-
-%function for estimating y value at user entered x point. allow for running
-%multiple times
-
-%create datasets on page M-202 of book
-
-%do the procedure parts of the book
-
 clear;
 clc;
 again='y';
