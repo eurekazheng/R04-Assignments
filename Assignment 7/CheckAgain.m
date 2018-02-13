@@ -1,11 +1,11 @@
 %created by Evan White on 2/11/2018 to check if user wants to use a new
 %dataset
 
-function [again]=CheckAgain()
+function [again]=CheckAgain(msg)
 
-again=input('Would you like to run again? (y/n)  ','s');
+again=input(msg,'s');
 while strcmpi(again,'y')==0&&strcmpi(again,'n')==0&&strcmpi(again,'yes')==0&&strcmpi(again,'no')==0
-    again=input('Error! Would you like to run again? (y/n)  ','s');
+    again=input(['Error! ', msg],'s');
 end
 if strcmpi(again,'y')==1
 elseif strcmpi(again,'yes')==1

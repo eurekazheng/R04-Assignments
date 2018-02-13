@@ -71,7 +71,6 @@ while again2=='y'
             again2='n';
     end
 end
-again=CheckAgain;
-
 findy(x,y)
+again = CheckAgain('Do you want to use another dataset? (y/n)');
 end

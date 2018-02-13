@@ -28,13 +28,14 @@ function findy(x,y)
             y_est=ppval(coeffs,x_est);
             
         case 4   % interp(lin) find
-            
+            y_est=interp1(x,y,x_est);
         case 5   % interp(cubic) find
-            
+            y_est=interp1(x,y,x_est,'pchip');
         case 6   % interp(spline) find
+            y_est=interp1(x,y,x_est,'spline');
     end
     
     disp(['The x value, ',num2str(x_est),', corresponds to the y value, ',num2str(y_est)]);
-    again=CheckAgain;
+    again = CheckAgain('Do you want to find another y value? (y/n)');
     end
 end
