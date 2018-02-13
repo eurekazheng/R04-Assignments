@@ -9,6 +9,7 @@
 close all;
 clear;
 clc;
+HeaderDisplay;
 again='y';
 while again=='y'
 [x,y]=dataload;
@@ -70,5 +71,6 @@ while again2=='y'
     end
 end
 findy(x,y)
-again = CheckAgain('Do you want to use another dataset? (y/n)');
+again = CheckAgain('Do you want to use another dataset? (y/n): ');
 end
+disp('Goodbye!');

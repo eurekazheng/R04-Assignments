@@ -36,6 +36,6 @@ function findy(x,y)
     end
     
     disp(['The x value, ',num2str(x_est),', corresponds to the y value, ',num2str(y_est)]);
-    again = CheckAgain('Do you want to find another y value? (y/n)');
+    again = CheckAgain('Do you want to find another y value? (y/n): ');
     end
 end

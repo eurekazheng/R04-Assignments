@@ -4,21 +4,21 @@ function plotdatapt(x,y,plotchoice)
     figure
     
     % regular plot
-    subplot(1,3,1)
+    subplot(3,1,1)
     plot(x,y,plotchoice)
     title('Regular Plot')
     xlabel('X')
     ylabel('Y')
     
     % semi-log
-    subplot(1,3,2)
+    subplot(3,1,2)
     plot(x,log(y),plotchoice)
     title('Semi-Log Plot')
     xlabel('X')
     ylabel('LOG(Y)')
     
     % log-log
-    subplot(1,3,3)
+    subplot(3,1,3)
     plot(log(x),log(y),plotchoice)
     title('Log-Log Plot')
     xlabel('LOG(X)')

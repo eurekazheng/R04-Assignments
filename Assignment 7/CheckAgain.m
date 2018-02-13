@@ -11,10 +11,8 @@ if strcmpi(again,'y')==1
 elseif strcmpi(again,'yes')==1
     again='y';
 elseif strcmpi(again,'n')==1
-    disp('Goodbye!');
 elseif strcmpi(again,'no')==1
     again='n';
-    disp('Goodbye!');
 end
 
 end
