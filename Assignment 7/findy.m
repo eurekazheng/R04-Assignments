@@ -2,6 +2,8 @@ function findy(x,y)
     % Function created by Kevin Pietz on 2.11.2018
     % Purpose to find y values for corresponding x values
     
+    again='y';
+    while again=='y'
     x_est=input('Enter the x value for the y value you want to find: ');
     
     interptype=menu('Choose the interpolation type: ','linear','polynomial','spline','inperpolation(linear)','interpolation(cubic)','interpolation(spline)');
@@ -31,4 +33,6 @@ function findy(x,y)
     end
     
     disp(['The x value, ',num2str(x_est),', corresponds to the y value, ',num2str(y_est)]);
+    again=CheckAgain;
+    end
 end
