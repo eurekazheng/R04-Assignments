@@ -9,6 +9,7 @@
 clear;
 clc;
 again='y';
+HeaderDisplay;
 while again=='y'
 [x,y]=dataload;
 plotchoice=PlotChoice;
