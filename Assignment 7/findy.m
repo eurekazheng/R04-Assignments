@@ -1,5 +1,5 @@
 function findy(x,y)
-    % Function created by Kevin Pietz on 2.11.2018
+    % Function created by Kevin Pietz and Eureka Zheng on 2.11.2018
     % Purpose to find y values for corresponding x values
     
     again='y';
