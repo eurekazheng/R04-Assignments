@@ -24,6 +24,8 @@ function findy(x,y)
             y_est=eqn;
             
         case 3   % Spline find
+            coeffs=spline(x,y);
+            y_est=ppval(coeffs,x_est);
             
         case 4   % interp(lin) find
             

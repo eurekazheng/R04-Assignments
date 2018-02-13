@@ -72,4 +72,6 @@ while again2=='y'
     end
 end
 again=CheckAgain;
+
+findy(x,y)
 end
