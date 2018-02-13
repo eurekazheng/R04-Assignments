@@ -6,13 +6,13 @@
 %Purpose: Plotting of xy data and performing analysis of said data
 %clearing and setting for the while loop using functions
 
+close all;
 clear;
 clc;
 again='y';
-HeaderDisplay;
 while again=='y'
 [x,y]=dataload;
-plotchoice=PlotChoice;
+[plotchoice,colort]=PlotChoice;
 plotdatapt(x,y,plotchoice)
 
 again2='y';
@@ -26,35 +26,31 @@ while again2=='y'
     if plottype==1
         [xnew,ynew,coeffs]=linearfit(x,y);
         r2=GetR2(y,ynew);
-        plottrendline(x,y,xnew,ynew,plotchoice,r2);
+        plottrendline(x,y,xnew,ynew,plotchoice,r2,plottype,colort);
         ErrorCalc(x,y,ynew);
     
     elseif plottype==2
         [xnew,ynew,coeffs,yest]=PolynomialFit(x,y);
         r2=GetR2(y,yest);
-        plottrendline(x,y,xnew,ynew,plotchoice,r2);
+        plottrendline(x,y,xnew,ynew,plotchoice,r2,plottype,colort);
         ErrorCalc(x,y,yest);
     
     elseif plottype==3
         [xnew,ynew,coeffs,yest]=splinefit(x,y);
         r2=GetR2(y,yest);
-        plottrendline(x,y,xnew,ynew,plotchoice,r2);
+        plottrendline(x,y,xnew,ynew,plotchoice,r2,plottype,colort);
         disp('The Errors for Spline fit are zero.');
     
     elseif plottype==4
         [xnew,ynew,coeffs,y2]=SemilogYFit(x,y);
         r2=GetR2(log(y2),ynew);
-        plottrendline(x,y,xnew,ynew,plotchoice,r2);
-        hold on;
-        plot(xnew,ynew,plotchoice);
+        plottrendline(x,y,xnew,ynew,plotchoice,r2,plottype,colort,log(y2));
         ErrorCalc(xnew,log(y2),ynew);
    
     else
         [xnew,ynew,coeffs,y2]=logfit(x,y);
         r2=GetR2(log(y2),ynew);
-        plottrendline(x,y,xnew,ynew,plotchoice,r2);
-        hold on;
-        plot(xnew,ynew,plotchoice);
+        plottrendline(x,y,xnew,ynew,plotchoice,r2,plottype,colort,log(y2));
         ErrorCalc(xnew,log(y2),ynew);
         
     end

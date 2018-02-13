@@ -6,6 +6,12 @@ function graphattributes()
     titleprompt=input('Please enter the title for the graph: ','s');
     title(titleprompt)
     
+    % X-Y Labels
+    xlab=input('Label the x-axis: ','s');
+    ylab=input('Label the y-axis: ','s');
+    xlabel(xlab);
+    ylabel(ylab);
+    
     % Grid Lines
     gridlines=menu('Would you like to have grid lines?','yes','no');
     switch gridlines
@@ -16,9 +22,4 @@ function graphattributes()
         otherwise
     end
     
-    % X-Y Labels
-    xlab=input('Label the x-axis: ','s');
-    ylab=input('Label the y-axis: ','s');
-    xlabel(xlab);
-    ylabel(ylab);
 end

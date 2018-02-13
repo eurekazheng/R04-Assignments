@@ -1,4 +1,4 @@
-function var3=addequation(coeffs,plottype)
+function addequation(coeffs,plottype)
     % Function created by Kevin Pietz on 2.10.2018
     % Purpose to add equation to graph
     

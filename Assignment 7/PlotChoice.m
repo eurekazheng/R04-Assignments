@@ -1,6 +1,6 @@
 %function created by Evan White on 2/10/2018 for Assignment 8
 %use: get user input for choice of plot point style and color
-function plotchoice=PlotChoice()
+function [plotchoice,colort]=PlotChoice()
 
 symbol=menu('Choose a symbol: ','point','circle','x-mark','plus','star','square','diamond','triangle (down)','triangle (up)','triangle (left)','triangle (right)','pentragram','hexagram');
 
@@ -55,4 +55,27 @@ switch color
 end
 
 plotchoice=strcat(symbol,color);
+
+% color for trendline
+colort=menu('Please choose a color for the trendline','blue','green','red','cyan','magenta','yellow','black','white');
+
+switch colort
+    case 1
+        colort='b';
+    case 2
+        colort='g';
+    case 3
+        colort='r';
+    case 4
+        colort='c';
+    case 5
+        colort='m';
+    case 6
+        colort='y';
+    case 7
+        colort='k';
+    case 8
+        colort='w';
+end
+
 end
