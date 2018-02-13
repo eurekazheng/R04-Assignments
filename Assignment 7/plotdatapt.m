@@ -1,4 +1,4 @@
-function var1=plotdatapt(x,y,plotchoice)
+function plotdatapt(x,y,plotchoice)
     % Function created by Kevin Pietz on 2.10.2018 
     % Purpose: show data in different plot types 
     figure

@@ -12,6 +12,7 @@ again='y';
 while again=='y'
 [x,y]=dataload;
 plotchoice=PlotChoice;
+plotdatapt(x,y,plotchoice)
 
 again2='y';
 while again2=='y'
