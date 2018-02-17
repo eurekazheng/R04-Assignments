@@ -1,4 +1,4 @@
-function [x,y]=mfileplot(uinput)
+function mfileplot(uinput)
 
 xmin=input('Choose your min x value: ');
 xmax=input('Choose your max x value: ');
@@ -14,6 +14,8 @@ for n=1:1000
 end
 
 plot(x,y,'k-');
+hold on;
+plot(x,zeros(1,length(x)));
 xlabel('X axis');
 ylabel('Y axis');
 title('Your Function');

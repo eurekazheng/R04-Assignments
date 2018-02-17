@@ -5,6 +5,7 @@
 
 clear all;
 clc;
+close all;
 
 % Prompt user for function, store as variable
 f=menu('What type of function would you like to use?','File','Anonymous');
@@ -12,11 +13,11 @@ f=menu('What type of function would you like to use?','File','Anonymous');
 switch f
     case 1
         funf=str2func(['@',input('Please enter the filename: ','s')]);
-        [x,y]=mfileplot(funf);
+        mfileplot(funf);
     case 2
         funf=input('Enter the function, no need for the ''@'' symbol: ','s');
-        funf=strcat(['@',funf]);
-        
+        funf=str2func(strcat(['@(x)',funf]));
+        mfileplot(funf);
 end
 
 % Prompt for analysis type, perform request
@@ -24,11 +25,11 @@ analysistype=menu('Which type of analysis do you want to perform?','Find roots',
 
 switch analysistype
     case 1
-        disp('roots');
+        roots(funf);
     case 2
-        disp('minima');
+        minimumoffunf(funf);
     case 3
-        disp('maxima');
+        maxoffunf(funf);
     case 4
         disp('area');
 end
