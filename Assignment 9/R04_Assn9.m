@@ -12,6 +12,7 @@ f=menu('What type of function would you like to use?','File','Anonymous');
 switch f
     case 1
         funf=str2func(['@',input('Please enter the filename: ','s')]);
+        [x,y]=mfileplot(funf);
     case 2
         funf=input('Enter the function, no need for the ''@'' symbol: ','s');
         funf=strcat(['@',funf]);
