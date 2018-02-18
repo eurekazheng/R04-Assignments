@@ -44,5 +44,5 @@ while runAgain==1
             'yes', 'no');
     end
     
-    typeAgain=menu('Would you like to run again?', 'yes', 'no');
+    runAgain=menu('Would you like to run again?', 'yes', 'no');
 end
