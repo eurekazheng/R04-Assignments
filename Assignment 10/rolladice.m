@@ -1,4 +1,5 @@
-% Evan White R04
+% Roll a dice game function created by Evan White on 2/22/2018 for
+% Assignment 10
 
 function rolladice()
 
@@ -189,7 +190,8 @@ while again==1
             end
             imshow(dice{roll_5(6)});
             
-            if usernum==(roll_1(6)+roll_2(6)+roll_3(6)+roll_4(6)+roll_5)
+            totalofdice=roll_1(6)+roll_2(6)+roll_3(6)+roll_4(6)+roll_5(6);
+            if usernum==(totalofdice)
                 subplot(2,5,10);
                 text(.5,.5,'You Won!');
             else

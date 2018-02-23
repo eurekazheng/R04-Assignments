@@ -13,6 +13,7 @@ while again==1
             rolladice;
         case 3
         case 4
+            rps;
         case 5
         case 6
         case 7
