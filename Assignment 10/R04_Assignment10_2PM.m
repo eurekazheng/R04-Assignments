@@ -5,13 +5,14 @@ close all;
 
 again=1;
 while again==1
-    gamechoice=menu('Pick a game:','Heads or Tails','Roll-A-Dice','Beat the dealer','Rock-Paper-Scissors','Blackjack','Craps','Quit');
+    gamechoice=menu('Pick a game:','Heads or Tails','Roll-A-Dice','Beat the Dealer','Rock-Paper-Scissors','Blackjack','Craps','Quit');
     
     switch gamechoice
         case 1
         case 2
             rolladice;
         case 3
+            beatthedealer;
         case 4
             rps;
         case 5

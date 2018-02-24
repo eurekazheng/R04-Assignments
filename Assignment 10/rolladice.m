@@ -1,9 +1,10 @@
-% Roll a dice game function created by Evan White on 2/22/2018 for
-% Assignment 10
+% Roll A Dice Game for Assignment 10
+%Created by Evan White
 
 function rolladice()
 
 close all;
+
 
 disp('The Rules/Steps of Roll-A-Dice are: ');
 disp('1) You pick number of dice ');
@@ -29,6 +30,7 @@ while again==1
     
     figure;
     hold on;
+
     
     switch numdice
         case 1
@@ -43,9 +45,11 @@ while again==1
             
             if usernum==roll(6)
                 subplot(2,1,2);
+                axis off;
                 text(.5,.5,'You Won!');
             else
                 subplot(2,1,2);
+                axis off;
                 text(.5,.5,'You Lost!');
             end
             
@@ -68,9 +72,11 @@ while again==1
             
             if usernum==(roll_1(6)+roll_2(6))
                 subplot(2,2,4);
+                axis off;
                 text(.5,.5,'You Won!');
             else
                 subplot(2,2,4);
+                axis off;
                 text(.5,.5,'You Lost!');
             end
             
@@ -102,9 +108,11 @@ while again==1
             
             if usernum==(roll_1(6)+roll_2(6)+roll_3(6))
                 subplot(2,3,6);
+                axis off;
                 text(.5,.5,'You Won!');
             else
                 subplot(2,3,6);
+                axis off;
                 text(.5,.5,'You Lost!');
             end
             
@@ -143,9 +151,11 @@ while again==1
             
             if usernum==(roll_1(6)+roll_2(6)+roll_3(6)+roll_4(6))
                 subplot(2,4,8);
+                axis off;
                 text(.5,.5,'You Won!');
             else
                 subplot(2,4,8);
+                axis off;
                 text(.5,.5,'You Lost!');
             end
             
@@ -193,9 +203,11 @@ while again==1
             totalofdice=roll_1(6)+roll_2(6)+roll_3(6)+roll_4(6)+roll_5(6);
             if usernum==(totalofdice)
                 subplot(2,5,10);
+                axis off;
                 text(.5,.5,'You Won!');
             else
                 subplot(2,5,10);
+                axis off;
                 text(.5,.5,'You Lost!');
             end
             
