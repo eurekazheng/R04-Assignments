@@ -1,8 +1,8 @@
 function coinflip()
 clear all;
 clc;
-tails=imread('images/quarter tails.jpg');
-heads=imread('images/quarter heads.jpg');
+tails=imread('images/tails.jpg');
+heads=imread('images/heads.jpg');
 
 choice=menu('Would you like to flip a coin?','flip','quit');
 while choice==1
