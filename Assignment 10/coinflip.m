@@ -1,10 +1,10 @@
 function coinflip()
-clear all;
+clear;
 clc;
 tails=imread('images/tails.jpg');
 heads=imread('images/heads.jpg');
 
-choice=menu('Would you like to flip a coin?','flip','quit');
+choice=menu('Flip a Coin?','Flip a Coin.','quit');
 while choice==1
     
     num=rand(1);
@@ -32,7 +32,8 @@ while choice==1
         imshow(heads);
     end
     
-    choice=menu('Would you like to flip again?','flip','quit');
+    choice=menu('Flip a Coin?','Flip a Coin.','quit');
 end
+close all;
 end
 

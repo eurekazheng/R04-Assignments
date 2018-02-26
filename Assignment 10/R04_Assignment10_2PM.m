@@ -9,6 +9,7 @@ while again==1
     
     switch gamechoice
         case 1
+            coinflip;
         case 2
             rolladice;
         case 3
