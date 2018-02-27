@@ -13,6 +13,10 @@ rand('state', sum(100 * clock));
 fund = input('How much money do you want to begin with: ');
 % Ask for display preference
 mode = input('Do you want to display as text or as images(t/i): ', 's');
+%global images;
+for i = 1:52
+    images{i} = imread(['images/', num2str(i), '.jpg']);
+end
 % Main game loop
 again = 'y';
 while again == 'y'
@@ -22,7 +26,7 @@ while again == 'y'
    show = get_card_string(dealer_cards(1));
    disp(['The dealer has the ', show, ' showing.']);
    player_cards = [get_card(), get_card()];
-   disp_cards(player_cards, 'You', mode);
+   disp_cards(player_cards, 'You', mode, images);
    player_total = add_cards(player_cards);
    disp(['Your current total is ', num2str(player_total)]);
    stood = 1;
@@ -33,7 +37,7 @@ while again == 'y'
            new_card = get_card();
            player_cards = [player_cards, new_card];
            player_total = add_cards(player_cards);
-           disp_cards(player_cards, 'You', mode);
+           disp_cards(player_cards, 'You', mode, images);
            disp(['Your current total is ', num2str(player_total)]);
            if player_total > 21
                disp('You went bust, you lose.');
@@ -47,7 +51,7 @@ while again == 'y'
    end
    %% If player stood pat, show dealer's cards and total
    if stood
-       disp_cards(dealer_cards, 'Dealer', mode);
+       disp_cards(dealer_cards, 'Dealer', mode, images);
        dealer_total = add_cards(dealer_cards);
        disp(['Dealer current total is ', num2str(dealer_total)]);
    end
@@ -57,7 +61,7 @@ while again == 'y'
            new_card = get_card();
            dealer_cards = [dealer_cards, new_card];
            dealer_total = add_cards(dealer_cards);
-           disp_cards(dealer_cards, 'Dealer', mode);
+           disp_cards(dealer_cards, 'Dealer', mode, images);
            disp(['Dealer current total is ', num2str(dealer_total)]);  
            if dealer_total > 21
                disp('The dealer went bust, you win!');
