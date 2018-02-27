@@ -1,12 +1,11 @@
 % Blackjack Game for Group R04 Assignment 10
 % Created by Eureka Zheng
 
-function [won,lost]=blackjack()
+function [w, l]=blackjack()
 
 close all;
-clc;
-won=0;
-lost=0;
+won = 0;
+lost = 0;
 
 % Randomization seed
 rand('state', sum(100 * clock));
@@ -14,7 +13,6 @@ rand('state', sum(100 * clock));
 fund = input('How much money do you want to begin with: ');
 % Ask for display preference
 mode = input('Do you want to display as text or as images(t/i): ', 's');
-%global images;
 for i = 1:52
     images{i} = imread(['images/', num2str(i), '.jpg']);
 end
@@ -44,7 +42,7 @@ while again == 'y'
                disp('You went bust, you lose.');
                fund = fund - bet;
                stood = 0;
-               lost=lost+1;
+               lost = lost + 1;
                break;
            end
        else
@@ -68,7 +66,7 @@ while again == 'y'
            if dealer_total > 21
                disp('The dealer went bust, you win!');
                fund = fund + bet;
-               won=won+1;
+               won = won + 1;
                stood = 0;
                break;
            end        
@@ -81,14 +79,16 @@ while again == 'y'
        if dealer_total > player_total
            disp('You lose.');
            fund = fund - bet;
-           lost=lost+1;
+           lost = lost + 1;
        elseif dealer_total < player_total
            disp('You win!');
            fund = fund + bet;
-           won=won+1;
+           won = won + 1;
        else
            disp('This hand is a draw');
        end
    end
    again = input('Do you want to play again?(y/n): ', 's');
 end
+w = won;
+l = lost;

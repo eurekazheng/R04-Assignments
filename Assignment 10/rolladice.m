@@ -4,15 +4,13 @@
 function [won,lost]=rolladice
 
 close all;
-clc;
 
 disp('The Rules/Steps of Roll-A-Dice are: ');
 disp('1) You pick number of dice ');
 disp('2) You then estimate total value of your dice roll ');
 disp('3) If you got your estimate right, you win! ');
 
-%shuffle rng
-rng('shuffle','twister');
+rand('state', sum(100 * clock));
 
 dice=cell(1,6);
 for n=1:6
@@ -30,7 +28,6 @@ while again==1
     
     usernum=input('Enter your estimate for the roll: ');
     
-    figure;
     hold on;
 
     

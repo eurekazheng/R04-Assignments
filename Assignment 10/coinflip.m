@@ -1,6 +1,5 @@
 function coinflip()
-clear;
-clc;
+close all;
 tails=imread('images/tails.jpg');
 heads=imread('images/heads.jpg');
 

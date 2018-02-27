@@ -1,7 +1,8 @@
 %Beat The Dealer game for Assignment 10
 %Created by Evan White
 function [won,lost]=beatthedealer
-clc;
+
+close all;
 
 %Displaying the rules
 disp('The Rules/Steps of Beat the Dealer are: ');
@@ -10,8 +11,7 @@ disp('2) Higher value card wins ');
 disp('3) Ace is highest value ');
 disp('4) Cards are shuffled each round ');
 
-%shuffling the rng
-rng('shuffle');
+rand('state', sum(100 * clock));
 
 %loading all the card images
 for n=1:52

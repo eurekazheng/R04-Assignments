@@ -1,4 +1,7 @@
-%R04 Assignment 10
+% Group R04 Assignment 10
+% Eureka Zheng, Evan White, Kevin Pietz
+% Mandala TTh 14:00
+
 clear;
 clc;
 close all;

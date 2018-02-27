@@ -1,3 +1,6 @@
+% Created by Eureka Zheng
+% Return sum of cards
+
 function t = add_cards(cards)
     total = 0;
     aces = 0;

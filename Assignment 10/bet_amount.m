@@ -1,3 +1,6 @@
+% Created by Eureka Zheng
+% Prompt the user for, verify, and return a bet amount
+
 function b = bet_amount(fund)
     disp(['Your current fund is ', num2str(fund)]);
     bet = fund + 1;

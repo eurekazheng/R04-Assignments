@@ -6,7 +6,6 @@
 
 function [won,lost]=craps_game()
 close all;
-clc;
 
 disp('The Rules of Craps are: ');
 disp('1) The User rolls 2 dices, and wins if the sum is 7 or 11');
@@ -14,17 +13,12 @@ disp('2) If the user rolls 2, 3, or 12 on the first round they lose  ');
 disp('3) On the 2nd or later roles, if the sum is the same as the original sum the user wins  ');
 disp('4) If the sum is 7 or 11 on subsequent rolls, the user loses ');
 
-%shuffle random number
-rng('shuffle','twister')
+rand('state', sum(100 * clock));
 
 %loads images
-
-dice{1}=imread('face1.jpg');
-dice{2}=imread('face2.jpg');
-dice{3}=imread('face3.jpg');
-dice{4}=imread('face4.jpg');
-dice{5}=imread('face5.jpg');
-dice{6}=imread('face6.jpg');
+for i = 1:6
+    dice{i} = imread(['images/face', num2str(i), '.jpg']);
+end
 
 again=1;
 won=0;
