@@ -1,9 +1,9 @@
 function t = add_cards(cards)
     total = 0;
     aces = 0;
-    for card = 1:length(cards)
-        total = total + get_card_value(card);
-        if get_card_value(card) == 1
+    for i = 1:length(cards)
+        total = total + get_card_value(cards(i));
+        if get_card_value(cards(i)) == 11
             aces = aces + 1;
         end
     end
