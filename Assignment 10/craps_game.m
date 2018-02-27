@@ -15,7 +15,7 @@ disp('3) On the 2nd or later roles, if the sum is the same as the original sum t
 disp('4) If the sum is 7 or 11 on subsequent rolls, the user loses ');
 
 %shuffle random number
-rng('shuffle');
+rng('shuffle','twister')
 
 %loads images
 

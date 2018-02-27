@@ -25,7 +25,9 @@ while again==1
             won=won+wontemp;
             lost=lost+losttemp;
         case 5
-            [wontempt,losttemp]=blackjack;
+            [wontemp,losttemp]=blackjack;
+            won=won+wontemp;
+            lost=lost+losttemp;
         case 6
              [wontemp,losttemp]=craps_game;
              won=won+wontemp;

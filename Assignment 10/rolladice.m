@@ -12,7 +12,7 @@ disp('2) You then estimate total value of your dice roll ');
 disp('3) If you got your estimate right, you win! ');
 
 %shuffle rng
-rng('shuffle');
+rng('shuffle','twister');
 
 dice=cell(1,6);
 for n=1:6
