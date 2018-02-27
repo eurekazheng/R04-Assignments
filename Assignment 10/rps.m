@@ -1,9 +1,10 @@
 %Rock Paper Scissors game for assignment 10
 %Created by Evan White
 
-function rps
+function [won,lost]=rps
 
-close all
+close all;
+clc;
 
 %displaying rules
 disp('The Rules/Steps of Rock Paper Scissors are: ');
@@ -16,6 +17,8 @@ rng('shuffle');
 again=1;
 botwins=0;
 playerwins=0;
+won=0;
+lost=0;
 
 while again==1
     %getting the targetted number of wins to win over all and checking for
@@ -118,6 +121,9 @@ while again==1
         text(.2,.5,['Your wins: ',num2str(playerwins)]);
         text(.2,.4,['Bot wins: ',num2str(botwins)]);
         
+        won=won+playerwins;
+        lost=lost+botwins;
+        
         %displaying the overall winner when the required overall number of
         %wins to finish is reached
         if playerwins==numwins||botwins==numwins
@@ -128,10 +134,14 @@ while again==1
             end
         end
         
+        
+        
         pause(1);
         clc;
+        
     end
-    
+    botwins=0;
+    playerwins=0;
     again=menu('Do you want to keep going?','Yes','No');
 end
 

@@ -1,6 +1,7 @@
 %Beat The Dealer game for Assignment 10
 %Created by Evan White
-function beatthedealer
+function [won,lost]=beatthedealer
+clc;
 
 %Displaying the rules
 disp('The Rules/Steps of Beat the Dealer are: ');
@@ -95,4 +96,6 @@ while again==1
     
 end
 close all;
+won=playerwins;
+lost=botwins;
 end

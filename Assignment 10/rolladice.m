@@ -1,10 +1,10 @@
 % Roll A Dice Game for Assignment 10
 %Created by Evan White
 
-function rolladice()
+function [won,lost]=rolladice
 
 close all;
-
+clc;
 
 disp('The Rules/Steps of Roll-A-Dice are: ');
 disp('1) You pick number of dice ');
@@ -19,6 +19,8 @@ for n=1:6
     dice{n}=imread(['images/face',num2str(n),'.jpg']);
 end
 
+won=0;
+lost=0;
 
 again=1;
 while again==1
@@ -47,10 +49,12 @@ while again==1
                 subplot(2,1,2);
                 axis off;
                 text(.5,.5,'You Won!');
+                won=won+1;
             else
                 subplot(2,1,2);
                 axis off;
                 text(.5,.5,'You Lost!');
+                lost=lost+1;
             end
             
         case 2
@@ -74,10 +78,12 @@ while again==1
                 subplot(2,2,4);
                 axis off;
                 text(.5,.5,'You Won!');
+                won=won+1;
             else
                 subplot(2,2,4);
                 axis off;
                 text(.5,.5,'You Lost!');
+                lost=lost+1;
             end
             
             
@@ -110,10 +116,12 @@ while again==1
                 subplot(2,3,6);
                 axis off;
                 text(.5,.5,'You Won!');
+                won=won+1;
             else
                 subplot(2,3,6);
                 axis off;
                 text(.5,.5,'You Lost!');
+                lost=lost+1;
             end
             
         case 4
@@ -153,10 +161,12 @@ while again==1
                 subplot(2,4,8);
                 axis off;
                 text(.5,.5,'You Won!');
+                won=won+1;
             else
                 subplot(2,4,8);
                 axis off;
                 text(.5,.5,'You Lost!');
+                lost=lost+1;
             end
             
         case 5
@@ -205,10 +215,12 @@ while again==1
                 subplot(2,5,10);
                 axis off;
                 text(.5,.5,'You Won!');
+                won=won+1;
             else
                 subplot(2,5,10);
                 axis off;
                 text(.5,.5,'You Lost!');
+                lost=lost+1;
             end
             
     end
