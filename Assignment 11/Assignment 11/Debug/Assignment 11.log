@@ -1,0 +1,8 @@
+﻿  Source.cpp
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(35): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(35): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(29): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'double'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(30): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 1 has type 'int'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(30): warning C4477: 'printf' : format string '%f' requires an argument of type 'double', but variadic argument 3 has type 'int'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 11\assignment 11\source.cpp(31): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 2 has type 'double'
+  Assignment 11.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 11\Debug\Assignment 11.exe
