@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(29): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Assignment 12.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 12\Debug\Assignment 12.exe
