@@ -6,10 +6,25 @@
 
 
 //function for part A
+
+float calc(float t, int n) {
+	float  i, output=0;
+
+	//summing up V given inputs
+	for (i = 1; i <= n; i = i + 1) {
+		output = (1 / ((2 * i - 1)*(2 * i - 1)))*cos(((2 * i - 1)*(3.14159265*t)) / 3) + output;
+	}
+
+	//part of V outside of sum
+	output = (12 / (3.14159265*3.14159265))*output;
+	output = 1.5 - output;
+
+	return (output);
+};
+
 int partA(void) {
 	char again;
-	int n, i;
-	float t,output;
+	float n,i,t,output;
 	do {
 		//setting value for summation
 		n = 0;
@@ -18,25 +33,18 @@ int partA(void) {
 
 		//getting value for t
 		printf("Input a value for t:\n");
-		scanf("%f", &t);
-		
+		scanf(" %f", &t);
 		
 		//getting value for n
 		//this doesnt seem to be working right now
 		printf("Input a value for n:\n");
-		scanf(" %d", &n);
+		scanf(" %f", &n);
 
-		//summing up V given inputs
-		for (i = 1; i <= n; i = i + 1) {
-			output = (1/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
-		}
-
-		//part of V outside of sum
-		output = ((3 / 2) - (12 / (3.14159265*3.14159265)))*output;
+		output = calc(t, n);
 		
 		//displaying results
-		printf("n = %d\n", n);
 		printf("t = %.2f\n", t);
+		printf("n = %.1f\n", n);
 		printf("Voltage = %f\n", output);
 
 		//checking if user wants to run again
@@ -77,7 +85,7 @@ int main(void) {
 			partC();
 			break;
 		}
-		printf("Do you want to do the whol program again? (y/n):\n");
+		printf("Do you want to do the whole program again? (y/n):\n");
 		scanf(" %c", &againm);
 	} while (againm == 'y');
 	
