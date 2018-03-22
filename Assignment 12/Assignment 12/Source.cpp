@@ -26,13 +26,7 @@ int partA(void) {
 		printf("Input a value for n:\n");
 		scanf(" %d", &n);
 
-		//summing up V given inputs
-		for (i = 1; i <= n; i = i + 1) {
-			output = (1/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
-		}
-
-		//part of V outside of sum
-		output = ((3 / 2) - (12 / (3.14159265*3.14159265)))*output;
+        output = calc(t, n);
 		
 		//displaying results
 		printf("n = %d\n", n);
@@ -46,6 +40,18 @@ int partA(void) {
 	return(0);
 };
 
+int calc(float t, int n) {
+    float output;
+    
+    //summing up V given inputs
+    for (int i = 1; i <= n; i = i + 1) {
+        output = (1/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
+    }
+    
+    //part of V outside of sum
+    return ((3 / 2) - (12 / (3.14159265*3.14159265)))*output;
+};
+
 //function for part B
 int partB(void) {
 	printf("b\n");
@@ -54,7 +60,26 @@ int partB(void) {
 
 //function for part C
 int partC(void) {
-	printf("c\n");
+    
+    //getting value for t1
+    printf("Input a value for t1:\n");
+    scanf("%f", &t1);
+    
+    //getting value for t2
+    printf("Input a value for t2:\n");
+    scanf("%f", &t2);
+    
+    //getting value for n
+    printf("Input a value for n:\n");
+    scanf(" %d", &n);
+    
+    v1 = calc(t1, n);
+    v2 = calc(t2, n);
+    
+    //displaying results
+    printf("v1 = %.2f\n", v1);
+    printf("v2 = %.2f\n", v2);
+    printf("Voltage = %f\n", v2 - v1);
 	return(0);
 };
 
