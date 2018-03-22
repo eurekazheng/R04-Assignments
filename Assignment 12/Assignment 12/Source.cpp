@@ -22,6 +22,7 @@ float calc(float t, int n) {
 	return (output);
 };
 
+
 int partA(void) {
 	char again;
 	float n,i,t,output;
@@ -38,15 +39,15 @@ int partA(void) {
 		//getting value for n
 		//this doesnt seem to be working right now
 		printf("Input a value for n:\n");
-<<<<<<< HEAD
+
 		scanf(" %f", &n);
 
 		output = calc(t, n);
-=======
+
 		scanf(" %d", &n);
 
         output = calc(t, n);
->>>>>>> 026352868c4e1724231707c904a1a2dd173ae782
+
 		
 		//displaying results
 		printf("t = %.2f\n", t);
@@ -54,33 +55,49 @@ int partA(void) {
 		printf("Voltage = %f\n", output);
 
 		//checking if user wants to run again
-		printf("Do you want to run again? (y/n)\n");
+		printf("Do you want to run part 1 again? (y/n)\n");
 		scanf(" %c", &again);
 	} while (again == 'y');
 	return(0);
 };
 
-int calc(float t, int n) {
-    float output;
-    
-    //summing up V given inputs
-    for (int i = 1; i <= n; i = i + 1) {
-        output = (1/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
-    }
-    
-    //part of V outside of sum
-    return ((3 / 2) - (12 / (3.14159265*3.14159265)))*output;
-};
 
 //function for part B
 int partB(void) {
-	printf("b\n");
+	char again;
+	float t, ep, i = 1;
+	do {
+	float term = 10000;
+	i = 1;
+	
+	printf("Input a value for t:\n");
+	scanf(" %f", &t);
+
+	printf("Input a value for epsilon:\n");
+	scanf(" %f", &ep);
+
+	while (fabs(term) >= ep) {
+		term = (1 / ((2 * i - 1)*(2 * i - 1)))*cos(((2 * i - 1)*(3.14159265*t)) / 3);
+		i++;
+	}
+	float voltage;
+	voltage = calc(t, i);
+
+	printf("t = %.2f\n", t);
+	printf("Epsilon = %f\n", ep);
+	printf("n = %.3f\n", i);
+	printf("Voltage = %f\n", voltage);
+
+
+	printf("Do you want to run part 2 again? (y/n)\n");
+	scanf(" %c", &again);
+	} while (again == 'y');
 	return(0);
 };
 
 //function for part C
 int partC(void) {
-    
+	float t1, t2, n, v1, v2;
     //getting value for t1
     printf("Input a value for t1:\n");
     scanf("%f", &t1);

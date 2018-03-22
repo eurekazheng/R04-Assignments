@@ -2,6 +2,13 @@
 c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(19): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(27): warning C4101: 'i': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(47): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'float *'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(28): warning C4101: 'i': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(80): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(85): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(114): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(115): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(112): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'float *'
   Assignment 12.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 12\Debug\Assignment 12.exe
