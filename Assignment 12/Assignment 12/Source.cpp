@@ -4,6 +4,13 @@
 #include <math.h>
 #include <string.h>
 
+/*
+evan white, kevin pietz, eureka zheng
+engineering 0012 t,th 2-4 PM
+Mandala
+3/22/2018
+*/
+
 
 //function for part A
 
@@ -66,30 +73,31 @@ int partA(void) {
 int partB(void) {
 	char again;
 	float t, ep, i = 1;
+	
 	do {
 	float term = 10000;
 	i = 1;
 	
-	printf("Input a value for t:\n");
+	printf("Input a value for t:\n"); // prompt for t
 	scanf(" %f", &t);
 
-	printf("Input a value for epsilon:\n");
+	printf("Input a value for epsilon:\n"); // prompt for epsilon
 	scanf(" %f", &ep);
 
-	while (fabs(term) >= ep) {
+	while (fabs(term) >= ep) { // calculate number of iterations for summation function
 		term = (1 / ((2 * i - 1)*(2 * i - 1)))*cos(((2 * i - 1)*(3.14159265*t)) / 3);
 		i++;
 	}
 	float voltage;
-	voltage = calc(t, i);
+	voltage = calc(t, i); // perform summation
 
-	printf("t = %.2f\n", t);
+	printf("t = %.2f\n", t); // display stuff
 	printf("Epsilon = %f\n", ep);
 	printf("n = %.3f\n", i);
 	printf("Voltage = %f\n", voltage);
 
 
-	printf("Do you want to run part 2 again? (y/n)\n");
+	printf("Do you want to run part 2 again? (y/n)\n"); // again loop
 	scanf(" %c", &again);
 	} while (again == 'y');
 	return(0);
@@ -97,26 +105,38 @@ int partB(void) {
 
 //function for part C
 int partC(void) {
-	float t1, t2, n, v1, v2;
-    //getting value for t1
-    printf("Input a value for t1:\n");
-    scanf("%f", &t1);
-    
-    //getting value for t2
-    printf("Input a value for t2:\n");
-    scanf("%f", &t2);
-    
-    //getting value for n
-    printf("Input a value for n:\n");
-    scanf(" %d", &n);
-    
-    v1 = calc(t1, n);
-    v2 = calc(t2, n);
-    
-    //displaying results
-    printf("v1 = %.2f\n", v1);
-    printf("v2 = %.2f\n", v2);
-    printf("Voltage = %f\n", v2 - v1);
+	float t1, t2, v1, v2;
+	int n;
+	char again;
+
+	do {
+		//getting value for t1
+		printf("Input a value for t1:\n");
+		scanf("%f", &t1);
+
+		//getting value for t2
+		printf("Input a value for t2:\n");
+		scanf("%f", &t2);
+
+		//getting value for n
+		printf("Input a value for n:\n");
+		scanf(" %d", &n);
+
+		//calculate voltages
+		v1 = calc(t1, n);
+		v2 = calc(t2, n);
+
+		//displaying results
+		printf("Calulated fourier series for %d iteration(s)", n);
+		printf("Voltage for t1(%.2f) = %.2f\n", t1, v1);
+		printf("Voltage for t2(%.2f) = %.2f\n", t2, v2);
+		printf("Voltage difference = %f\n", v2 - v1);
+
+		//prompt user for again
+		printf("Do you want to run part 3 again (y/n)?\n");
+		scanf(" %c", &again);
+
+	} while (again == 'y');
 	return(0);
 };
 
@@ -125,10 +145,11 @@ int partC(void) {
 int main(void) {
 	int choice = 10;
 	char againm;
+	printf("ENGR0012\nR04\nMandala 2 PM\nEvan White, Kevin Pietz, Eureka Zheng\n\n");
 	do {
-		printf("Do you want to try part 1, 2, or 3?: \n");
+		printf("Do you want to try part 1, 2, or 3?: \n"); // prompt user for which part to use
 		scanf(" %d", &choice);
-		switch (choice) {
+		switch (choice) { // switch case for choosing different parts
 		case 1:
 			partA();
 			break;
@@ -141,7 +162,7 @@ int main(void) {
 		}
 		printf("Do you want to do the whole program again? (y/n):\n");
 		scanf(" %c", &againm);
-	} while (againm == 'y');
+	} while (againm == 'y'); // again loop
 	
 	printf("\nGoodbye!\n\n");
 	system("pause");
