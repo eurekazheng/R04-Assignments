@@ -1,4 +1,11 @@
 ﻿  Source.cpp
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(27): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(54): warning C4477: 'scanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'float *'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(35): warning C4101: 'i': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(88): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 12\assignment 12\source.cpp(92): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Assignment 12.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 12\Debug\Assignment 12.exe
