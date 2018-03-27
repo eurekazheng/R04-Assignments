@@ -97,14 +97,21 @@ int main(void) {
 			min2 = secondtemps[n2];
 	}
 	printf("The minimum temperature in 2001 was %d\n", min2);
-
-
-
+	
+	int maxDiff = 0xf0000000;
+	int minDiff = 0x7fffffff;
+	for (int i = 0; i < 364; i++) {
+		int temp = secondtemps[i] - firsttemps[i];
+		maxDiff = temp > maxDiff ? temp : maxDiff;
+		minDiff = temp < minDiff ? temp : minDiff;
+	}
+	
 	//writing results to a dat file
 	FILE *fname2;
 	fname2 = fopen("results.dat", "w");
-	fprintf(fname2,"Mean in 1930 = %.2f\nMean in 2001 = %.2f\nStandard Deviation in 1930: %.2f\nStandard Deviation in 2001: %.2f\n",firstmean,secondmean,stdev1,stdev2);
+	fprintf(fname2,"Mean in 1930 = %.2f\nMean in 2001 = %.2f\nStandard Deviation in 1930: %.2f\nStandard Deviation in 2001: %.2f\n", firstmean, secondmean, stdev1, stdev2);
 	fprintf(fname2, "Max in 1930 = %d\nMax in 2001 = %d\nMin in 1930 = %d\nMin in 2001 = %d", max1, max2, min1, min2);
+	fprintf(fname2, "Max difference = %d\nMin difference = %d\n", maxDiff, minDiff);
 	fclose(fname2);
 
 
