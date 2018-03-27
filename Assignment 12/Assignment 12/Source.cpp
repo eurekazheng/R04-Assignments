@@ -4,6 +4,17 @@
 #include <math.h>
 #include <string.h>
 
+float calc(float t, int n) {
+    float output;
+    
+    //summing up V given inputs
+    for (int i = 1; i <= n; i = i + 1) {
+        output = (1.0/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
+    }
+    
+    //part of V outside of sum
+    return 1.5 - (12 / (3.14159265*3.14159265))*output;
+};
 
 //function for part A
 int partA(void) {
@@ -20,7 +31,7 @@ int partA(void) {
 		printf("Input a value for t:\n");
 		scanf("%f", &t);
 		
-		
+
 		//getting value for n
 		//this doesnt seem to be working right now
 		printf("Input a value for n:\n");
@@ -40,18 +51,6 @@ int partA(void) {
 	return(0);
 };
 
-int calc(float t, int n) {
-    float output;
-    
-    //summing up V given inputs
-    for (int i = 1; i <= n; i = i + 1) {
-        output = (1/((2*i-1)*(2*i-1)))*cos(((2*i-1)*(3.14159265*t))/3)+output;
-    }
-    
-    //part of V outside of sum
-    return ((3 / 2) - (12 / (3.14159265*3.14159265)))*output;
-};
-
 //function for part B
 int partB(void) {
 	printf("b\n");
@@ -60,7 +59,8 @@ int partB(void) {
 
 //function for part C
 int partC(void) {
-    
+    float t1, t2;
+    int n; 
     //getting value for t1
     printf("Input a value for t1:\n");
     scanf("%f", &t1);
@@ -73,8 +73,8 @@ int partC(void) {
     printf("Input a value for n:\n");
     scanf(" %d", &n);
     
-    v1 = calc(t1, n);
-    v2 = calc(t2, n);
+    int v1 = calc(t1, n);
+    int v2 = calc(t2, n);
     
     //displaying results
     printf("v1 = %.2f\n", v1);
