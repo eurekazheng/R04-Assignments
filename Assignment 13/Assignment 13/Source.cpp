@@ -98,12 +98,13 @@ int main(void) {
 	}
 	printf("The minimum temperature in 2001 was %d\n", min2);
 	
+	int diff[365];
 	int maxDiff = 0xf0000000;
 	int minDiff = 0x7fffffff;
-	for (int i = 0; i < 364; i++) {
-		int temp = secondtemps[i] - firsttemps[i];
-		maxDiff = temp > maxDiff ? temp : maxDiff;
-		minDiff = temp < minDiff ? temp : minDiff;
+	for (int i = 0; i < 365; i++) {
+		diff[i] = secondtemps[i] - firsttemps[i];
+		maxDiff = diff[i] > maxDiff ? diff[i] : maxDiff;
+		minDiff = diff[i] < minDiff ? diff[i] : minDiff;
 	}
 	
 	//writing results to a dat file
