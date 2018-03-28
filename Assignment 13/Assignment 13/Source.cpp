@@ -116,38 +116,67 @@ int main(void) {
 	}
 	mini++;
 	maxi++;
-	int minday, maxday;
-	char month[20];
+	int mindday, maxdday;
+	int monthd;
 	if (maxi <= 31) {
-		strcpy(month, "January");
-		maxday = maxi;
+		monthd = 1;
+		maxdday = maxi;
 	} else if(maxi > 31 && maxi <= 59) {
-		strcpy(month, "February");
-		maxday = maxi - 31;
+		monthd = 2;
+		maxdday = maxi - 31;
 	}
 	else if (maxi > 59 && maxi <= 90) {
-		strcpy(month, "March");
-		maxday = maxi - 59;
+		monthd = 3;
+		maxdday = maxi - 59;
 	}
 	else if (maxi > 90 && maxi <= 120) {
-		strcpy(month, "April");
-		maxday = maxi - 90;
+		monthd = 4;
+		maxdday = maxi - 90;
 	}
 	else if (maxi > 120 && maxi <= 151) {
-		strcpy(month, "May");
-		maxday = maxi - 120;
+		monthd = 5;
+		maxdday = maxi - 120;
+	}
+	else if (maxi > 151 && maxi <= 181) {
+		monthd = 6;
+		maxdday = maxi - 151;
+	}
+	else if (maxi > 181 && maxi <= 212) {
+		monthd = 7;
+		maxdday = maxi - 181;
+	}
+	else if (maxi > 212 && maxi <= 243) {
+		monthd = 8;
+		maxdday = maxi - 212;
+	}
+	else if (maxi > 243 && maxi <= 273) {
+		monthd = 9;
+		maxdday = maxi - 243;
+	}
+	else if (maxi > 273 && maxi <= 304) {
+		monthd = 10;
+		maxdday = maxi - 273;
+	}
+	else if (maxi > 304 && maxi <= 334) {
+		monthd = 11;
+		maxdday = maxi - 304;
+	}
+	else if (maxi > 334 && maxi <= 365) {
+		monthd = 12;
+		maxdday = maxi - 334;
 	}
 
-	printf("Max Difference: %d on day: %d\n", maxDiff, maxi);
+	printf("Max Difference: %d on %d/%d\n", maxDiff,monthd,maxdday);
 	printf("Min Difference: %d on day: %d\n\n", minDiff, mini);
 
 
 	//writing results to a dat file
 	FILE *fname2;
 	fname2 = fopen("results.dat", "w");
-	fprintf(fname2,"Mean in 1930 = %.2f\nMean in 2001 = %.2f\nStandard Deviation in 1930: %.2f\nStandard Deviation in 2001: %.2f\n", firstmean, secondmean, stdev1, stdev2);
-	fprintf(fname2, "Max in 1930 = %d\nMax in 2001 = %d\nMin in 1930 = %d\nMin in 2001 = %d", max1, max2, min1, min2);
-	fprintf(fname2, "Max difference = %d\nMin difference = %d\n", maxDiff, minDiff);
+	fprintf(fname2,"Mean in 1930 = %.2f\nMean in 2001 = %.2f\nStandard Deviation in 1930: %.2f\nStandard Deviation in 2001: %.2f\n\n\n", firstmean, secondmean, stdev1, stdev2);
+	fprintf(fname2, "Max in 1930 = %d\nMax in 2001 = %d\nMin in 1930 = %d\nMin in 2001 = %d\n\n", max1, max2, min1, min2);
+	fprintf(fname2, "\nCalculating Difference with 1930 Temps Subtracted from 2001 Temps:\n");
+	fprintf(fname2, "Max difference = %d on %d/%d\nMin difference = %d\n", maxDiff,monthd,maxdday, minDiff);
 	fclose(fname2);
 
 
