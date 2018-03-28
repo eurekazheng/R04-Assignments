@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+
 
 int main(void) {
 	printf("ENGR0012\nR04\nMandala 2 PM\nEvan White, Kevin Pietz, Eureka Zheng\n\n"); // header funciton
@@ -59,7 +61,7 @@ int main(void) {
 	stdev2 = pow(stdev2, .5);
 	
 	//displaying results to screen
-	printf("Standard Deviation in 1930: %.2f, Standard Deviation in 2001: %.2f\n\n", stdev1,stdev2);
+	printf("Standard Deviation in 1930: %.2f, Standard Deviation in 2001: %.2f\n\n\n", stdev1,stdev2);
 
 	//min and max stuff
 	//max
@@ -78,7 +80,7 @@ int main(void) {
 		if (max2 < secondtemps[i2])
 			max2 = secondtemps[i2];
 	}
-	printf("The maximum temperature in 2001 was %d\n", max2);
+	printf("The maximum temperature in 2001 was %d\n\n", max2);
 
 	// min
 
@@ -96,17 +98,50 @@ int main(void) {
 		if (min2 > secondtemps[n2])
 			min2 = secondtemps[n2];
 	}
-	printf("The minimum temperature in 2001 was %d\n", min2);
+	printf("The minimum temperature in 2001 was %d\n\n\n", min2);
 	
+
+	//differences
 	int diff[365];
 	int maxDiff = 0xf0000000;
 	int minDiff = 0x7fffffff;
+	int maxi, mini;
+	printf("Calculating Difference with 1930 Temps Subtracted from 2001 Temps:\n");
 	for (int i = 0; i < 365; i++) {
 		diff[i] = secondtemps[i] - firsttemps[i];
+		maxi = diff[i] > maxDiff ? i : maxi;
 		maxDiff = diff[i] > maxDiff ? diff[i] : maxDiff;
+		mini = diff[i] < minDiff ? i : mini;
 		minDiff = diff[i] < minDiff ? diff[i] : minDiff;
 	}
-	
+	mini++;
+	maxi++;
+	int minday, maxday;
+	char month[20];
+	if (maxi <= 31) {
+		strcpy(month, "January");
+		maxday = maxi;
+	} else if(maxi > 31 && maxi <= 59) {
+		strcpy(month, "February");
+		maxday = maxi - 31;
+	}
+	else if (maxi > 59 && maxi <= 90) {
+		strcpy(month, "March");
+		maxday = maxi - 59;
+	}
+	else if (maxi > 90 && maxi <= 120) {
+		strcpy(month, "April");
+		maxday = maxi - 90;
+	}
+	else if (maxi > 120 && maxi <= 151) {
+		strcpy(month, "May");
+		maxday = maxi - 120;
+	}
+
+	printf("Max Difference: %d on day: %d\n", maxDiff, maxi);
+	printf("Min Difference: %d on day: %d\n\n", minDiff, mini);
+
+
 	//writing results to a dat file
 	FILE *fname2;
 	fname2 = fopen("results.dat", "w");
