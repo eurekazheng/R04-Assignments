@@ -1,8 +1,8 @@
 ﻿  Source.cpp
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(8): warning C4101: 'day': unreferenced local variable
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(49): warning C4101: 'month': unreferenced local variable
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(125): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(130): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(138): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(143): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(18): warning C4101: 'day': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(60): warning C4101: 'month': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(136): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(141): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(149): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 13\assignment 13\source.cpp(154): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Assignment 13.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 13\Debug\Assignment 13.exe

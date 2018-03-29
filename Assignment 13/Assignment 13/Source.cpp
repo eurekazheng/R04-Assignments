@@ -9,13 +9,16 @@ Kevin Pietz, Eureka Zheng, Evan White
 Engineering 0012 T/Th 2:00-4:00
 Instructor: Mandala
 Date: 3/29/2018
+
+Homework 13
+Analysis of Temperature Data Stored in a 2 Column .csv file
 */
 
 
 
 //function for finding month of an inputted day (input #/365, output #/12)
 int datemonth(int n) {
-	int month, day;
+	int month;
 	if (n <= 31) {
 		month = 1;
 	}
@@ -57,7 +60,7 @@ int datemonth(int n) {
 
 //function for finding day of an inputted day (from #/365 to # within a month)
 int dateday(int n) {
-	int month, day;
+	int day;
 	if (n <= 31) {
 		day = n;
 	}
@@ -111,13 +114,13 @@ int main(void) {
 	do {
 		fscanf(fname, "%d,%d", &firsttemps[n], &secondtemps[n]);
 		n++;
-	} while (n<364);
+	} while (n<=364);
 	fclose(fname);
-
+	
 	//finding the mean of each year
 	float firstmean, secondmean,tempsum1=0,tempsum2=0;
 	n = 0;
-	while (n < 364) {
+	while (n <= 364) {
 		tempsum1 += firsttemps[n];
 		tempsum2 += secondtemps[n];
 		n++;
@@ -131,7 +134,7 @@ int main(void) {
 	stdsum = 0;
 	temp = 0;
 	n = 0;
-	while (n < 364) {
+	while (n <= 364) {
 		temp = firsttemps[n] - firstmean;
 		temp = pow(temp, 2);
 		stdsum += temp;
@@ -144,7 +147,7 @@ int main(void) {
 	temp = 0;
 	n = 0;
 	stdsum = 0;
-	while (n < 364) {
+	while (n <= 364) {
 		temp = secondtemps[n] - secondmean;
 		temp = pow(temp, 2);
 		stdsum += temp;
@@ -160,22 +163,22 @@ int main(void) {
 	//max
 	int max1day, max2day, min1day, min2day;
 
-	int max1 = firsttemps[1];
+	int max1 = firsttemps[0];
 	int i1;
-	for (i1 = 2; i1 <= 365; i1++) {
+	for (i1 = 1; i1 <= 364; i1++) {
 		if (max1 < firsttemps[i1]) {
 			max1 = firsttemps[i1];
-			max1day = i1;
+			max1day = i1+1;
 		}
 	}
 	printf("The maximum temperature in 1930 was %d on %d/%d\n", max1, datemonth(max1day),dateday(max1day));
 
-	int max2 = secondtemps[1];
+	int max2 = secondtemps[0];
 	int i2;
-	for (i2 = 2; i2 <= 365; i2++) {
+	for (i2 = 1; i2 <= 364; i2++) {
 		if (max2 < secondtemps[i2]) {
 			max2 = secondtemps[i2];
-			max2day = i2;
+			max2day = i2+1;
 		}
 
 	}
@@ -185,20 +188,20 @@ int main(void) {
 
 	int min1 = firsttemps[0];
 	int n1;
-	for (n1 = 1; n1 < 364; n1++) {
+	for (n1 = 1; n1 <= 364; n1++) {
 		if (min1 > firsttemps[n1]) {
 			min1 = firsttemps[n1];
-			min1day = n1;
+			min1day = n1+1;
 		}
 	}
 	printf("The minimum temperature in 1930 was %d on %d/%d\n", min1, datemonth(min1day), dateday(min1day));
 
-	int min2 = secondtemps[1];
+	int min2 = secondtemps[0];
 	int n2;
-	for (n2 = 1; n2 < 364; n2++) {
+	for (n2 = 1; n2 <= 364; n2++) {
 		if (min2 > secondtemps[n2]) {
 			min2 = secondtemps[n2];
-			min2day = n2;
+			min2day = n2+1;
 		}
 	}
 	printf("The minimum temperature in 2001 was %d on %d/%d\n\n\n", min2, datemonth(min2day), dateday(min2day));
