@@ -1,0 +1,14 @@
+The Addition: 420.00 + 69.00 = 489.00
+The Subtraction: 420.00 - 69.00 = 351.00
+The Multipication: 420.00 * 69.00 = 28980.00
+The Division: 420.00 / 69.00 = 6.09
+The Addition: 4.00 + 69.00 = 73.00
+The Subtraction: 4.00 - 69.00 = -65.00
+The Multipication: 4.00 * 69.00 = 276.00
+The Division: 4.00 / 69.00 = 0.06
+The Addition: 1.33 + 3.14 = 4.47
+The Subtraction: 1.33 - 3.14 = -1.82
+The Multipication: 1.33 * 3.14 = 4.16
+The Division: 1.33 / 3.14 = 0.42
+The Division: 3.14 / 3.42 = 0.92
+The Addition: 3.14 + 3.42 = 6.56
