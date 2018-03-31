@@ -12,3 +12,4 @@ The Multipication: 1.33 * 3.14 = 4.16
 The Division: 1.33 / 3.14 = 0.42
 The Division: 3.14 / 3.42 = 0.92
 The Addition: 3.14 + 3.42 = 6.56
+The Addition: 1.00 + 1.00 = 2.00
