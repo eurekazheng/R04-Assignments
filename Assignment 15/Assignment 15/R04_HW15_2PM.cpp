@@ -22,7 +22,7 @@ int main(void) {
 	header();
 
 	//variables for checking password
-	int usern = 1234, pass = 5678,nentry,pentry,attempts=3;
+	int usern = 1234, pass = 5678,nentry,pentry,attempts=4;
 
 	//getting username input and verifying
 	printf("Please Enter your user ID: ");
@@ -35,12 +35,14 @@ int main(void) {
 	//getting password input and verifying
 	printf("Please Enter your Password: ");
 	scanf(" %d", &pentry);
-	while (pentry != pass&&attempts!=0) {
+	while (pentry != pass&&attempts!=1) {
+		attempts--;
 		//if user gets wrong, their number of attempts left for password is displayed
 		printf("Incorrect Password! You have %d attempts remaining. Please Renter your Password: ",attempts);
-		scanf(" %d", &pentry);
-		attempts--;
+		scanf(" %d", &pentry);	
 	}
+	if (pentry == pass && attempts == 1)
+		attempts = 2;
 
 	//data stored in balance file as checking,savings
 	FILE *data;
@@ -50,7 +52,7 @@ int main(void) {
 
 	char again = 'y';
 	//script with functions in it if user successfully logs in
-	while (again == 'y'&&attempts != 0) {
+	while (again == 'y'&&attempts > 1) {
 
 		//menu function
 		//switch case
