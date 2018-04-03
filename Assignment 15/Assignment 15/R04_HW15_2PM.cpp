@@ -66,7 +66,7 @@ int main(void) {
 			break;
 		case 2: //deposit
 			//checking which account user will deposit to
-			printf("Which account will you deposit to?\n1) Checking\n2) Savings");
+			printf("Which account will you deposit to?\n1) Checking\n2) Savings\n");
 			scanf(" %d", &accountc);
 			//error checking their account input
 			while (accountc != 1 && accountc != 2) {
@@ -87,7 +87,26 @@ int main(void) {
 			dispbalance(user1.checkingb,user1.savingsb);
 			break;
 		case 3: //withdraw
-			printf("withdraw \n");
+				//checking which account user will deposit to
+			printf("Which account will you withdraw from?\n1) Checking\n2) Savings\n");
+			scanf(" %d", &accountc);
+			//error checking their account input
+			while (accountc != 1 && accountc != 2) {
+				printf("Error! Please enter a 1 or 2!\nWhich account will you withdraw from?\n1) Checking\n2) Savings\n");
+				scanf(" %d", &accountc);
+			}
+			//based on their account, the inputs to the deposit function are switched
+			switch (accountc) {
+			case 1:
+				user1.checkingb = withdraw(user1.checkingb);
+				break;
+			case 2:
+				user1.savingsb = withdraw(user1.savingsb);
+				break;
+			}
+			//printing out the new values
+			printf("Your new balances are:\n");
+			dispbalance(user1.checkingb, user1.savingsb);
 			break;
 		case 4: //exit
 			break;
@@ -109,6 +128,13 @@ int main(void) {
 	}
 	
 	//after user ends script
+
+	//printing outputs into the data file again
+	FILE *wdata;
+	wdata = fopen("balances.dat", "w");
+	fprintf(wdata, "%lf,%lf\nchecking,savings", user1.checkingb, user1.savingsb);
+	fclose(data);
+
 	printf("\nThanks for using ENGR0012 Bank\n\n\n");
 	system("pause");
 }
@@ -154,4 +180,14 @@ double deposit(double currentbal) {
 
 
 //function 5 -- withdrawing money
-double withdraw(double currentbal);
+double withdraw(double currentbal) {
+	double wdamount, outbal;
+	printf("\nPlease enter the amount you want to withdraw: \n");
+	scanf(" %lf", &wdamount);
+	while (wdamount <= 0) {
+		printf("\nError! Please enter a nonnegative amount you want to withdraw: \n");
+		scanf(" %lf", &wdamount);
+	}
+	outbal = currentbal - wdamount;
+	return(outbal);
+}
