@@ -178,7 +178,6 @@ double deposit(double currentbal) {
 	return(outbal);
 }
 
-
 //function 5 -- withdrawing money
 double withdraw(double currentbal) {
 	double wdamount, outbal;

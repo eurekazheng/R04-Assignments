@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 //Evan White, Kevin Pietz, Eureka Zheng
 //R04
@@ -23,10 +24,10 @@ int main(void) {
 	//initializing variables
 	float num1,num2;
 	int optype;
-	char again='y',againnum;
+	char again='Y',againnum,temp;
 
 	//outer while loop is for user wants to continue but with different numbers
-	while (again=='y') {
+	while (again=='Y') {
 
 
 		//getting the users numbers using func 1
@@ -41,11 +42,11 @@ int main(void) {
 		}
 		
 		//againnum is set back to y here in case user previously said no to using same numbers, as againnum would still be 'n'
-		againnum = 'y';
+		againnum = 'Y';
 
 		//operations section
 		//inner while loop is if user wants to continue with same numbers
-		while (againnum=='y') {
+		while (againnum=='Y') {
 			float output;
 			//getting optype from func 3
 			optype = opchoice();
@@ -60,16 +61,18 @@ int main(void) {
 
 			do {
 				printf("Would you like to use these numbers again? (y/n):\n");
-				scanf(" %c", &againnum);
-			} while (againnum != 'y'&&againnum != 'n');
+				scanf(" %c", &temp);
+				againnum=toupper(temp);
+			} while (againnum != 'Y'&&againnum != 'N');
 
 		}
 
 		//checking if user wants to use different numbers
 		do  {
 			printf("Do you want to use different numbers? (y/n):\n");
-			scanf(" %c", &again);
-		} while (again != 'y'&&again != 'n');
+			scanf(" %c", &temp);
+			again=toupper(temp);
+		} while (again != 'Y'&&again != 'N');
 	
 	}
 	
