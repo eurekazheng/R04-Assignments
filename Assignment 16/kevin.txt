@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+// prototypes----------
+
+char fun2(void);
+
+// main----------
+
+int main(void) {
+	
+	
+	printf("%c\n", fun2());
+
+	system("pause");
+	return(0);
+}
+
+// function definitions----------
+
+char fun2(void) {
+	char choice='A';
+	
+	printf("Enter A to add two matrices \nEnter S to substract to matrices \nEnter M to multiply two matrices \nEnter E to multiply two matrices element by element \nEnter Q to quit \nPlease enter your choice: ");
+	scanf(" %c", &choice);
+
+	while (choice != 'A' && choice != 'S' && choice != 'M' && choice != 'E' && choice != 'Q') {
+		printf("Error! Input invalid.\tTry Again: \n");
+		scanf(" %c", &choice);
+	}
+	
+	return(choice);
+}
