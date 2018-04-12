@@ -1,0 +1,9 @@
+﻿  R04_Assignment16_2pm.cpp
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(11): warning C4101: 'rows2': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(11): warning C4101: 'cols2': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(10): warning C4101: 'matrix2': unreferenced local variable
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(29): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 1 has type 'int **'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(29): warning C4477: 'fscanf' : format string '%d' requires an argument of type 'int *', but variadic argument 2 has type 'int **'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(30): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+c:\users\evan\documents\freshman year work\engr0012\assignments\r04-assignments\assignment 16\assignment 16\r04_assignment16_2pm.cpp(30): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
+  Assignment 16.vcxproj -> C:\Users\Evan\Documents\Freshman Year Work\ENGR0012\Assignments\R04-Assignments\Assignment 16\Debug\Assignment 16.exe
