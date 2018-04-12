@@ -25,7 +25,7 @@ int main(void) {
 	header();
 
 	//variables for checking password
-	int usern = 1234, pass = 5678,nentry,pentry,attempts=4;
+	int usern = 1234, pass = 5678, nentry, pentry, attempts = 4, tnum = 0;
 
 	//getting username input and verifying
 	printf("Please Enter your user ID: ");
@@ -77,9 +77,11 @@ int main(void) {
 			switch (accountc) {
 			case 1:
 				user1.checkingb=deposit(user1.checkingb);
+				tnum++;
 				break;
 			case 2:
 				user1.savingsb = deposit(user1.savingsb);
+				tnum++;
 				break;
 			}
 			//printing out the new values
@@ -99,9 +101,11 @@ int main(void) {
 			switch (accountc) {
 			case 1:
 				user1.checkingb = withdraw(user1.checkingb);
+				tnum++;
 				break;
 			case 2:
 				user1.savingsb = withdraw(user1.savingsb);
+				tnum++;
 				break;
 			}
 			//printing out the new values
@@ -132,10 +136,11 @@ int main(void) {
 	//printing outputs into the data file again
 	FILE *wdata;
 	wdata = fopen("balances.dat", "w");
-	fprintf(wdata, "%lf,%lf\nchecking,savings", user1.checkingb, user1.savingsb);
+	fprintf(wdata, "%lf,%lf", user1.checkingb, user1.savingsb);
 	fclose(data);
 
-	printf("\nThanks for using ENGR0012 Bank\n\n\n");
+	printf("\n       Thanks for using ENGR0012 Bank");
+	printf("\nYou completed %d transactions during your session\n\n\n",tnum);
 	system("pause");
 }
 
@@ -183,9 +188,14 @@ double withdraw(double currentbal) {
 	double wdamount, outbal;
 	printf("\nPlease enter the amount you want to withdraw: \n");
 	scanf(" %lf", &wdamount);
-	while (wdamount <= 0) {
-		printf("\nError! Please enter a nonnegative amount you want to withdraw: \n");
-		scanf(" %lf", &wdamount);
+	while (wdamount < 0||wdamount>currentbal) {
+		if (wdamount < 0) {
+			printf("\nError! Please enter a nonnegative amount you want to withdraw: \n");
+			scanf(" %lf", &wdamount);
+		} else if (wdamount>currentbal){
+			printf("\nError! That would exceed your account balance. Please enter a correct amount: \n");
+			scanf(" %lf", &wdamount);
+		}
 	}
 	outbal = currentbal - wdamount;
 	return(outbal);
