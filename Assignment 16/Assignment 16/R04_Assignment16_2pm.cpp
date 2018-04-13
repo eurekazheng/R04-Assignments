@@ -10,14 +10,31 @@ ENGR0012 Section: Mandala 2 PM T/Th
 Purpose: Matrix operations based on user inputted data sets
 */
 
+/*
+basic layout for matrix operations
+
+for (int i = 0; i < rows1; i++) { 
+	printf("\n");
+	for (int n = 0; n < cols1; n++) {
+		printf("%f ", matrix1[i][n]);
+	}
+} printf("\n\n\n");
+
+*/
+
 //prototype functions
 void matrixinput(int *rows, int *cols, float matrix[][20]);
 char menu(void);
+void addition(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]);
+void subtraction(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]);
+void multi(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]);
+void emulti(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]);
+void display(char optype, int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]);
 
 int main(void) {
 	//initializing variables
-	float matrix1[20][20], matrix2[20][20];
-	int rows1, cols1, rows2, cols2;
+	float matrix1[20][20], matrix2[20][20], matrixout[20][20];
+	int rows1, cols1, rows2, cols2, rowsout, colsout;
 	char opchoice;
 
 	// FUNCTION 1
@@ -25,43 +42,54 @@ int main(void) {
 	matrixinput(&rows1, &cols1, matrix1);
 	matrixinput(&rows2, &cols2, matrix2);
 
-	//printing first matrix to verify successful scanning
-	for (int i = 0; i < rows1; i++) { //delete later
-		printf("\n");
-		for (int n = 0; n < cols1; n++) {
-			printf("%f ", matrix1[i][n]);
-		}
-	} printf("\n\n\n"); // delete later
-
 	// FUNCTION 2
+	printf("\n");
 	opchoice = menu();
+	printf("\n");
 	//switch case based on output
 	switch (opchoice) {
 	case 'A': //adding matrices
-		printf("adding");
+
+		// FUNCTION 3
+		addition(&rows1, &cols1, matrix1, &rows2, &cols2, matrix2, &rowsout, &colsout, matrixout);
 		break;
+
 	case 'S': //subtracting matrices
-		printf("subtracting");
+
+		// FUNCTION 4
+		subtraction(&rows1, &cols1, matrix1, &rows2, &cols2, matrix2, &rowsout, &colsout, matrixout);
 		break;
+
 	case 'M': //multiplying matrices
-		printf("multiplying");
+
+		// FUNCTION 5
+		multi(&rows1, &cols1, matrix1, &rows2, &cols2, matrix2, &rowsout, &colsout, matrixout);
 		break;
+
 	case 'E': //element by element multiplication
-		printf("element mult");
+
+		// FUNCTION 6
+		emulti(&rows1, &cols1, matrix1, &rows2, &cols2, matrix2, &rowsout, &colsout, matrixout);
 		break;
+
 	case 'Q': //quitting
 		printf("cya");
 		break;
 	}
+	display(opchoice, &rows1, &cols1, matrix1, &rows2, &cols2, matrix2, &rowsout, &colsout, matrixout);
 
 	printf("\n\n");
 	system("pause");
 	return(0);
-}
+} 
 
 /*
-	Function 1:
-	 - Take input of filenames of where matrices are stored
+-----------------------------------END OF MAIN----------------------------------------
+*/
+
+/*
+	Function 1: GET MATRICES FROM FILE
+	 - Take input of filename where matrix and its dimensions are stored
 	 - error check filename input
 	 - open file when name is correct, get # of rows and cols, then build array
 */
@@ -82,7 +110,7 @@ void matrixinput(int *rows, int *cols, float matrix[][20]) {
 }
 
 /*
-	Function 2:
+	Function 2: MENU OF OPERATIONS
 	 - Take input of what type of matrix operation the user wants to do
 	 - Error check the users choice
 	 - Return a correct input of operation choice to main
@@ -96,9 +124,188 @@ char menu(void) {
 	choice=toupper(choice);
 	//error checking
 	while (choice != 'A' && choice != 'S' && choice != 'M' && choice != 'E' && choice != 'Q') {
-		printf("Error! Input invalid.\tTry Again: \n");
+		printf("ERROR! Input invalid.\tTry Again: \n");
 		scanf(" %c", &choice);
 	}
 	//returning to main
 	return(choice);
+}
+
+/*
+	Function 3: ADDITION
+	 - Take input of 2 matrices and their dimensions, and the pointer to the results matrix
+	 - Perform the addition of the 2 matrices
+	 - Return the results of the addition to the specified variable
+*/
+void addition(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]) {
+
+	*rowsout = *rows1; //setting size of output matrix
+	*colsout = *cols1; 
+
+	printf("Performing Addition\n");
+	for (int i = 0; i < *rows1; i++) {
+		if (*rows1 != *rows2 || *cols1 != *cols2) {
+			printf("ERROR! Dimensions do not match! Returning to main function!\n");
+			break; //if the dimensions of input matrices don't match, display error and break.
+		}
+		for (int n = 0; n < *cols1; n++) {
+			matrixout[i][n] = matrix1[i][n] + matrix2[i][n];
+		}
+	}
+
+}
+
+/*
+	Function 4: SUBTRACTION
+	 - Take input of 2 matrices and their dimensions, and the pointer to the results matrix
+	 - Perform the subtraction of the 2 matrices if dimensions are correct
+*/
+
+void subtraction(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]) {
+
+
+	*rowsout = *rows1; //setting size of output matrix
+	*colsout = *cols1;
+
+	printf("Performing Subtraction\n");
+	for (int i = 0; i < *rows1; i++) {
+		if (*rows1 != *rows2 || *cols1 != *cols2) {
+			printf("ERROR! Dimensions do not match! Returning to main function!\n");
+			break; //if the dimensions of input matrices don't match, display error and break.
+		}
+		for (int n = 0; n < *cols1; n++) {
+			matrixout[i][n] = matrix1[i][n] - matrix2[i][n];
+		}
+	}
+
+}
+
+/*
+	Function 5: MULTIPLICATION
+	 - Take input of 2 matrices, their dimensions, and pointers for output
+	 - Perform the multiplication
+*/
+
+void multi(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]) {
+	printf("Performing Multiplication\n");
+
+	*rowsout = *rows1; //setting size of output matrix
+	*colsout = *cols2;
+
+	for (int i = 0; i < *rows1; i++) {
+		if (*rows2 != *cols1) {
+			printf("ERROR! Dimensions do not match! Returning to main function!\n");
+			break; //if the dimensions of input matrices don't match, display error and break.
+		}
+		for (int j = 0; j < *cols2; j++) {
+			matrixout[i][j] = 0;
+			for (int k = 0; k < *cols1; k++) {
+				matrixout[i][j] += matrix1[i][k] * matrix2[k][j];
+			}
+		}
+	}
+
+}
+
+/*
+	Function 6: ELEMENT MULTIPLICATION
+	 - Take input of 2 matrices, their dimensions, and pointers for output
+	 - Perform the element-wise multiplication 
+*/
+
+void emulti(int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]) {
+
+	*rowsout = *rows1; //setting size of output matrix
+	*colsout = *cols1;
+
+	printf("Performing Element-wise Multiplication\n");
+	for (int i = 0; i < *rows1; i++) {
+		if (*rows1 != *rows2 || *cols1 != *cols2) {
+			printf("ERROR! Dimensions do not match! Returning to main function!\n");
+			break; //if the dimensions of input matrices don't match, display error and break.
+		}
+		for (int n = 0; n < *cols1; n++) {
+			matrixout[i][n] = matrix1[i][n] * matrix2[i][n];
+		}
+	}
+
+}
+
+/*
+	Function 7: DISPLAY RESULTS
+	 - Display both original matrices
+	 - Display output of original operation
+	 - Return nothing
+*/
+void display(char optype, int *rows1, int*cols1, float matrix1[][20], int *rows2, int *cols2, float matrix2[][20], int *rowsout, int *colsout, float matrixout[][20]) {
+
+	switch (optype) {
+	case 'A':
+	case 'S':
+	case 'E': //displaying for addition, subtraction, and element-wise multiplication
+
+		if (*rows1 != *rows2 || *cols1 != *cols2) {
+			break; //if the dimensions of input matrices didn't match, break before displaying
+		}
+
+		printf("Matrix 1:"); //displaying first matrix
+		for (int i = 0; i < *rows1; i++) {
+			printf("\n");
+			for (int n = 0; n < *cols1; n++) {
+				printf("%f ", matrix1[i][n]);
+			}
+		} printf("\n\n");
+
+		printf("Matrix 2:");
+		for (int i = 0; i < *rows2; i++) {
+			printf("\n");
+			for (int n = 0; n < *cols2; n++) {
+				printf("%f ", matrix2[i][n]);
+			}
+		} printf("\n\n");
+
+		printf("Output Matrix:");
+		for (int i = 0; i < *rowsout; i++) {
+			printf("\n");
+			for (int n = 0; n < *colsout; n++) {
+				printf("%f ", matrixout[i][n]);
+			}
+		} printf("\n\n");
+
+		break;
+	
+	case 'M': //displaying for multiplication
+
+		if (*rows2 != *cols1) {
+			break;
+		}
+
+		printf("Matrix 1:"); //displaying first matrix
+		for (int i = 0; i < *rows1; i++) {
+			printf("\n");
+			for (int n = 0; n < *cols1; n++) {
+				printf("%f ", matrix1[i][n]);
+			}
+		} printf("\n\n");
+
+		printf("Matrix 2:");
+		for (int i = 0; i < *rows2; i++) {
+			printf("\n");
+			for (int n = 0; n < *cols2; n++) {
+				printf("%f ", matrix2[i][n]);
+			}
+		} printf("\n\n");
+
+		printf("Output Matrix:");
+		for (int i = 0; i < *rowsout; i++) {
+			printf("\n");
+			for (int n = 0; n < *colsout; n++) {
+				printf("%f ", matrixout[i][n]);
+			}
+		} printf("\n\n");
+
+		break;
+	case 'Q': //quitting
+		break;
+	}
 }
