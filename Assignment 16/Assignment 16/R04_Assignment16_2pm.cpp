@@ -24,8 +24,8 @@ void logfile(char optype, int *rows1, int*cols1, float matrix1[][20], int *rows2
 int main(void) {
 	//initializing variables
 	float matrix1[20][20], matrix2[20][20], matrixout[20][20];
-	int rows1, cols1, rows2, cols2, rowsout, colsout, errorchk=1; //errorchk is for if dimensions aren't proper for the operation, is returned as 0 by functions, 1 if successful
-	char opchoice,again='Y',again2='Y'; //again for whole thing, again 2 for same matrices
+	int rows1, cols1, rows2, cols2, rowsout, colsout, errorchk; //errorchk is for if dimensions aren't proper for the operation, is returned as 0 by functions, 1 if successful
+	char opchoice,again='Y',again2='Y'; //again for whole thing, again2 for same matrices
 
 	// FUNCTION 1
 	//running function 1 twice to get both matrices for operations
@@ -74,7 +74,7 @@ int main(void) {
 				break;
 
 			case 'Q': //quitting
-				return(0); //returning 0 ends program, so quitting is final
+				return(0); //returning from main ends program, so this makes quitting actually work
 			}
 
 			if (errorchk == 1) {
