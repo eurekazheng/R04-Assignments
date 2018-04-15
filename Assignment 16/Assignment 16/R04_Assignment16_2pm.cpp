@@ -25,12 +25,12 @@ int main(void) {
 	//initializing variables
 	float matrix1[20][20], matrix2[20][20], matrixout[20][20];
 	int rows1, cols1, rows2, cols2, rowsout, colsout, errorchk; //errorchk is for if dimensions aren't proper for the operation, is returned as 0 by functions, 1 if successful
-	char opchoice,again='Y',again2='Y'; //again for whole thing, again2 for same matrices
+	char opchoice,again,again2; //again for whole thing, again2 for same matrices
 
 	// FUNCTION 1
 	//running function 1 twice to get both matrices for operations
 	//LOOP FOR DIFFERENT MATRICES STARTS HERE
-	while (again == 'Y') {
+	do {
 
 		again2 = 'Y'; //setting back to Y if user wanted to use new matrices, it would be N here
 
@@ -43,7 +43,7 @@ int main(void) {
 		// FUNCTION 2
 		printf("\n");
 
-		while (again2 == 'Y') {
+		do {
 			// LOOP FOR SAME MATRICES STARTS HERE
 			opchoice = menu();
 			printf("\n");
@@ -74,6 +74,9 @@ int main(void) {
 				break;
 
 			case 'Q': //quitting
+
+				printf("\nQuitting...\n\n");
+				system("pause");
 				return(0); //returning from main ends program, so this makes quitting actually work
 			}
 
@@ -91,7 +94,7 @@ int main(void) {
 				again2 = toupper(again2);
 			} while (again2 != 'Y'&&again2 != 'N');
 
-		}
+		} while (again2 == 'Y');
 
 
 		//asking if user wants to start completely over
@@ -100,7 +103,7 @@ int main(void) {
 			scanf(" %c", &again);
 			again = toupper(again);
 		} while (again != 'Y'&&again != 'N');
-	}
+	} while (again == 'Y');
 
 	printf("\n\n");
 	system("pause");
